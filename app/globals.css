@@ -5,9 +5,34 @@
 @custom-variant whimsical (&:where([data-theme="whimsical"], [data-theme="whimsical"] *));
 @custom-variant classic (&:where([data-theme="classic"], [data-theme="classic"] *));
 
-:root {
-    --background: #fdfdf8;
-    --foreground: #181818;
+:root,
+[data-theme="tech"] {
+    --current-header: var(--font-michroma);
+    --current-body: var(--font-fira-mono);
+    --current-decorative: var(--font-b612);
+}
+
+[data-theme="whimsical"] {
+    --current-header: var(--font-lacquer);
+    --current-body: var(--font-inter);
+    --current-decorative: var(--font-mountains-of-christmas);
+}
+
+[data-theme="classic"] {
+    --current-header: var(--font-times-new-roman);
+    --current-body: var(--font-times-new-roman);
+    --current-decorative: var(--font-times-new-roman);
+}
+
+@theme inline {
+    --font-header: var(--current-header);
+    --font-body: var(--current-body);
+    --font-decorative: var(--current-decorative);
+}
+
+@theme {
+    --color-background: #fdfdf8;
+    --color-foreground: #181818;
 
     /* TECH */
     --color-tech-gray: #75787d;
@@ -63,42 +88,16 @@
     --color-whim-brown-950: #0e0c0c;
 
     /* CLASSIC */
+    --color-classic-gray: #75787d;
     --color-classic-red: #ff0000;
     --color-classic-yellow: #ffff00;
     --color-classic-green: #00ff00;
     --color-classic-blue: #0000ff;
 }
-:root,
-[data-theme="tech"] {
-    --current-header: var(--font-michroma);
-    --current-body: var(--font-fira-mono);
-    --current-decorative: var(--font-b612);
-}
-
-[data-theme="whimsical"] {
-    --current-header: var(--font-lacquer);
-    --current-body: var(--font-inter);
-    --current-decorative: var(--font-mountains-of-christmas);
-}
-
-[data-theme="classic"] {
-    --current-header: var(--font-times-new-roman);
-    --current-body: var(--font-times-new-roman);
-    --current-decorative: var(--font-times-new-roman);
-}
-
-@theme {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-
-    --font-header: var(--current-header);
-    --font-body: var(--current-body);
-    --font-decorative: var(--current-decorative);
-}
 
 body {
-    background: var(--background);
-    color: var(--foreground);
+    background: var(--color-background);
+    color: var(--color-foreground);
     font-family: var(--current-body);
 }
 
