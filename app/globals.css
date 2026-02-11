@@ -1,12 +1,75 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* 1. DEFINE THEME LOGIC */
-:root,
-[data-theme="tech"] {
+@custom-variant tech (&:where([data-theme="tech"], [data-theme="tech"] *));
+@custom-variant whimsical (&:where([data-theme="whimsical"], [data-theme="whimsical"] *));
+@custom-variant classic (&:where([data-theme="classic"], [data-theme="classic"] *));
+
+:root {
     --background: #fdfdf8;
     --foreground: #181818;
 
+    /* TECH */
+    --color-tech-gray: #75787d;
+    --color-tech-green: #dbe9a3;
+    --color-tech-blue: #bfd7ff;
+
+    --color-tech-pink-50: #fce8f2;
+    --color-tech-pink-100: #f7bfda;
+    --color-tech-pink-200: #f087b9; /* color from graceis.online logo */
+    --color-tech-pink-300: #ed6eab;
+    --color-tech-pink-400: #e84594;
+    --color-tech-pink-500: #e31c7c;
+    --color-tech-pink-600: #ba1766;
+    --color-tech-pink-700: #91124f;
+    --color-tech-pink-800: #680d39;
+    --color-tech-pink-900: #400823;
+    --color-tech-pink-950: #17030c;
+
+    /* WHIMSICAL */
+    --color-whim-lavender-50: #f7edf4;
+    --color-whim-lavender-100: #ecd5e5; /* used in original graceis.online */
+    --color-whim-lavender-200: #dbaecd;
+    --color-whim-lavender-300: #cc8eba;
+    --color-whim-lavender-400: #be6fa6;
+    --color-whim-lavender-500: #b04f93;
+    --color-whim-lavender-600: #904178;
+    --color-whim-lavender-700: #71335e;
+    --color-whim-lavender-800: #512444;
+    --color-whim-lavender-900: #311629;
+    --color-whim-lavender-950: #12080f;
+
+    --color-whim-green-50: #f7f9ed;
+    --color-whim-green-100: #edf3d7;
+    --color-whim-green-200: #dce7b2; /* used in original graceis.online */
+    --color-whim-green-300: #c9df89;
+    --color-whim-green-400: #b9d562; /* used in original graceis.online */
+    --color-whim-green-500: #afc45f; /* used in original graceis.online */
+    --color-whim-green-600: #8ca145;
+    --color-whim-green-700: #6b7b34;
+    --color-whim-green-800: #4b5625;
+    --color-whim-green-900: #2c3316;
+
+    --color-whim-brown-50: #f3f1f1;
+    --color-whim-brown-100: #ddd9d9; /* replaces the gray #d3d3d3 used in grace.isonline */
+    --color-whim-brown-200: #c8c1c1;
+    --color-whim-brown-300: #b2a9a9;
+    --color-whim-brown-400: #9d9090;
+    --color-whim-brown-500: #877878;
+    --color-whim-brown-600: #6f6262;
+    --color-whim-brown-700: #564d4d;
+    --color-whim-brown-800: #393333;
+    --color-whim-brown-900: #262222;
+    --color-whim-brown-950: #0e0c0c;
+
+    /* CLASSIC */
+    --color-classic-red: #ff0000;
+    --color-classic-yellow: #ffff00;
+    --color-classic-green: #00ff00;
+    --color-classic-blue: #0000ff;
+}
+:root,
+[data-theme="tech"] {
     --current-header: var(--font-michroma);
     --current-body: var(--font-fira-mono);
     --current-decorative: var(--font-b612);
