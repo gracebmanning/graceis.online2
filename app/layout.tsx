@@ -58,22 +58,22 @@ const inter = Inter({
 const timesNewRoman = localFont({
     src: [
         {
-            path: "../public/times.ttf",
+            path: "../public/fonts/times.ttf",
             weight: "400",
             style: "normal",
         },
         {
-            path: "../public/timesi.ttf",
+            path: "../public/fonts/timesi.ttf",
             weight: "400",
             style: "italic",
         },
         {
-            path: "../public/timesbd.ttf",
+            path: "../public/fonts/timesbd.ttf",
             weight: "700",
             style: "normal",
         },
         {
-            path: "../public/timesbi.ttf",
+            path: "../public/fonts/timesbi.ttf",
             weight: "700",
             style: "italic",
         },
