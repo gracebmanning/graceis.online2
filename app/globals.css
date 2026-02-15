@@ -111,9 +111,3 @@ h3,
 h4 {
     font-family: var(--current-header);
 }
-/* 
-@layer components {
-    [data-theme="tech"] .font-barcode {
-        font-family: var(--font-barcode) !important;
-    }
-} */
