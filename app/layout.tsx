@@ -5,6 +5,7 @@ import {
     Michroma,
     Fira_Mono,
     B612,
+    Libre_Barcode_128_Text,
     Lacquer,
     Mountains_of_Christmas,
     Inter,
@@ -30,6 +31,13 @@ const b612 = B612({
     subsets: ["latin"],
     weight: ["400", "700"],
     style: ["normal", "italic"],
+});
+
+const barcode = Libre_Barcode_128_Text({
+    variable: "--font-barcode",
+    subsets: ["latin"],
+    weight: ["400"],
+    style: ["normal"],
 });
 
 // THEME 2 (Whimsical)
@@ -95,7 +103,7 @@ export default function RootLayout({
         <html
             lang="en"
             className={`
-                    ${michroma.variable} ${firaMono.variable} ${b612.variable} 
+                    ${michroma.variable} ${firaMono.variable} ${b612.variable} ${barcode.variable} 
                     ${lacquer.variable} ${mountainsOfChristmas.variable} ${inter.variable}
                     ${timesNewRoman.variable}
                     antialiased`}

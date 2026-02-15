@@ -1,8 +1,33 @@
 import Image from "next/image";
 import ThemeSwitcher from "@/components/themeSwitcher";
+import { NavMenu } from "@/components/nav";
 import star from "@/public/images/embroidered-star.png";
 import dottedLine from "@/public/images/dotted-line-long.svg";
 import handDrawnLine from "@/public/images/hand-drawn-line-long.svg";
+import cd from "@/public/images/cd.png";
+import email from "@/public/images/email.png";
+
+const Email = () => {
+    return (
+        <div className="flex flex-row items-center">
+            <Image
+                src={cd}
+                alt={"silver CD with prism reflection"}
+                width={1000}
+                height={1000}
+                className="hidden tech:block w-16 h-16"
+            />
+            <Image
+                src={email}
+                alt={"envelope icon with blue arrows indicating send/receive actions"}
+                width={217}
+                height={217}
+                className="hidden classic:block w-16 h-16"
+            />
+            <span className="tech:font-decorative-two">hello [@] graceis.online</span>
+        </div>
+    );
+};
 
 export default function Home() {
     return (
@@ -32,6 +57,10 @@ export default function Home() {
                 />
             </div>
             <div className="hidden classic:block w-full h-px bg-classic-gray shadow-sm mt-2" />
+            <div className="mt-10 flex flex-col justify-start items-start gap-10">
+                <NavMenu isHome={true} />
+                <Email />
+            </div>
         </div>
     );
 }
