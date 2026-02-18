@@ -1,5 +1,9 @@
 import { StaticImageData } from "next/image";
 
+// BACKGROUNDS
+import daisiesImg from "@/public/images/daisiesFlipped_50opacity.jpg";
+import whiteRabbitImg from "@/public/images/white-rabbit.png";
+
 // LINES
 import dottedLineImg from "@/public/images/dotted-line-long.svg";
 import handDrawnLineImg from "@/public/images/hand-drawn-line-long.svg";
@@ -33,6 +37,25 @@ export interface ImageAsset {
     alt: string;
     source: ImageSource;
 }
+
+// BACKGROUNDS
+export const daisies: ImageAsset = {
+    src: daisiesImg,
+    alt: "two white daisies with smaller purple blooms and surrounding greenery",
+    source: {
+        origin: "internal",
+        note: "my personal stationery collection; artist unknown",
+    },
+};
+
+export const whiteRabbit: ImageAsset = {
+    src: whiteRabbitImg,
+    alt: "black-and-white illustration of the Alice in Wonderland white rabbit in a checkered coat holding an umbrella, appearing to walk hurriedly through tall grass while checking his watch.",
+    source: {
+        origin: "external",
+        url: "https://commons.wikimedia.org/wiki/File:De_Alice%27s_Abenteuer_im_Wunderland_Carroll_pic_02.jpg",
+    },
+};
 
 // LINES
 export const dottedLine: ImageAsset = {

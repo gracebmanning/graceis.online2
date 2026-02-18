@@ -116,9 +116,11 @@ export default function RootLayout({
                     antialiased`}
             suppressHydrationWarning
         >
-            <body className="w-dvw h-dvh" suppressHydrationWarning>
+            <body className="w-screen h-screen relative" suppressHydrationWarning>
                 <ThemeProvider attribute="data-theme" defaultTheme="tech" themes={themes}>
-                    {children}
+                    <div className="w-screen h-screen whimsical:bg-[url(../public/images/daisiesFlipped_50opacity.jpg)] whimsical:bg-contain whimsical:bg-bottom-right whimsical:bg-no-repeat">
+                        {children}
+                    </div>
                 </ThemeProvider>
             </body>
         </html>

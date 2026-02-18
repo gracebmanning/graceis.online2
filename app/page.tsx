@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ThemeSwitcher from "@/components/themeSwitcher";
 import { NavMenu } from "@/components/nav";
-import { cd, email, embroideredstar, dottedLine, handDrawnLine } from "@/lib/images";
+import { embroideredstar, dottedLine, handDrawnLine, cd, email, whiteRabbit } from "@/lib/images";
 
 const Email = () => {
     return (
@@ -20,7 +20,7 @@ const Email = () => {
                 height={217}
                 className="hidden classic:block w-16 h-16"
             />
-            <div>
+            <div className="px-3">
                 <p className="hidden w-fit classic:block classic:bg-classic-yellow classic:text-lg classic:md:text-xl">
                     EMAIL ME!
                 </p>
@@ -34,35 +34,49 @@ const Email = () => {
 
 export default function Home() {
     return (
-        <div className="p-8 lg:p-10">
-            <div className="w-full flex flex-row gap-2 justify-start items-center">
-                <Image src={embroideredstar.src} alt={embroideredstar.alt} width={50} height={50} />
-                <div className="w-full flex flex-col">
-                    <h1 className="text-3xl md:text-5xl">grace manning</h1>
-                    <div className="w-full flex flex-col gap-4 md:gap-0 md:flex-row md:justify-between md:items-end">
-                        <h2 className="text-xl md:text-2xl">creative technologist</h2>
-                        <ThemeSwitcher />
+        <div className="relative h-screen">
+            <Image
+                src={whiteRabbit.src}
+                alt={whiteRabbit.alt}
+                width={800}
+                height={1200}
+                className="hidden whimsical:block absolute bottom-0 right-0 z-0 w-[35%] md:w-[25%]"
+            />
+            <div className="relative p-8 lg:p-10 z-10">
+                <div className="w-full flex flex-row gap-2 justify-start items-center">
+                    <Image
+                        src={embroideredstar.src}
+                        alt={embroideredstar.alt}
+                        width={50}
+                        height={50}
+                    />
+                    <div className="w-full flex flex-col">
+                        <h1 className="text-3xl md:text-5xl">grace manning</h1>
+                        <div className="w-full flex flex-col gap-4 md:gap-0 md:flex-row md:justify-between md:items-end">
+                            <h2 className="text-xl md:text-2xl">creative technologist</h2>
+                            <ThemeSwitcher />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="hidden tech:block w-full overflow-hidden">
-                <Image
-                    className="mt-2 min-w-500 object-left"
-                    src={dottedLine.src}
-                    alt={dottedLine.alt}
-                />
-            </div>
-            <div className="hidden whimsical:block w-full overflow-hidden">
-                <Image
-                    className="mt-3 min-w-500 object-left"
-                    src={handDrawnLine.src}
-                    alt={handDrawnLine.alt}
-                />
-            </div>
-            <div className="hidden classic:block w-full border-b-2 border-b-classic-gray drop-shadow-lg mt-2" />
-            <div className="mt-10 flex flex-col justify-start items-start gap-10">
-                <NavMenu isHome={true} />
-                <Email />
+                <div className="hidden tech:block w-full overflow-hidden">
+                    <Image
+                        className="mt-2 min-w-500 object-left"
+                        src={dottedLine.src}
+                        alt={dottedLine.alt}
+                    />
+                </div>
+                <div className="hidden whimsical:block w-full overflow-hidden">
+                    <Image
+                        className="mt-3 min-w-500 object-left"
+                        src={handDrawnLine.src}
+                        alt={handDrawnLine.alt}
+                    />
+                </div>
+                <div className="hidden classic:block w-full border-b-2 border-b-classic-gray drop-shadow-lg mt-2" />
+                <div className="mt-10 flex flex-col justify-start items-start gap-10">
+                    <NavMenu isHome={true} />
+                    <Email />
+                </div>
             </div>
         </div>
     );
