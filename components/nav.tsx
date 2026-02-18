@@ -4,54 +4,23 @@ import { FOOTER_LINKS } from "@/lib/routes";
 import Link from "next/link";
 import ThemeSwitcher from "./themeSwitcher";
 import Image from "next/image";
-import ladybug from "@/public/images/ladybug.png";
-import lunamoth from "@/public/images/lunamoth.png";
-import fish from "@/public/images/fish.png";
-import bear from "@/public/images/bear.png";
-import strawberry from "@/public/images/strawberry.png";
-import instagram from "@/public/images/instagram.png";
-import youtube from "@/public/images/youtube.png";
+import { ladybug, lunamoth, fish, bear, strawberry, instagram, youtube } from "@/lib/images";
 
-const whimsicalMainImages = [
-    {
-        src: ladybug,
-        alt: "A red ladybug with black spots.",
-    },
-    {
-        src: lunamoth,
-        alt: "A bright green Luna moth with distinctive circular eyespots, long wing tails, and reddish-purple wing borders.",
-    },
-    {
-        src: fish,
-        alt: "A fish with a silvery-grey body, a blue stripe, and yellow fins.",
-    },
-];
-const whimsicalSocialImages = [
-    {
-        src: bear,
-        alt: "A brown teddy bear sitting on a white background, looking soft and cuddly.",
-    },
-    { src: strawberry, alt: "A bright red strawberry with a green stem." },
-];
-const classicSocialImages = [
-    {
-        src: instagram,
-        alt: "original retro Instagram app icon featuring a brown and beige Polaroid-style camera with a rainbow stripe",
-    },
-    { src: youtube, alt: "original YouTube app icon featuring a brown stero television" },
-];
+const whimsicalMainImages = [ladybug, lunamoth, fish];
+const whimsicalSocialImages = [bear, strawberry];
+const classicSocialImages = [instagram, youtube];
 
 export const NavMenu = ({ isHome }: { isHome: boolean }) => {
     const navCircle = "w-8 h-8 rounded-full blur-xs";
     const techCircleColors = ["bg-tech-pink-200", "bg-tech-gray", "bg-tech-green"];
 
-    const navListStyle = "flex flex-col justify-start items-start gap-4";
+    const navListStyle = "flex flex-col justify-start items-start gap-4 classic:gap-2";
     const navLinkStyle =
-        "flex flex-row justify-start items-center gap-4 classic:gap-2 text-xl whimsical:text-2xl whimsical:md:text-3xl classic:underline hover:font-semibold";
+        "flex flex-row justify-start items-center gap-4 classic:gap-2 text-xl whimsical:text-2xl whimsical:md:text-3xl classic:underline hover:font-semibold transition-all ease-in-out";
 
-    const footerListStyle = "flex flex-col justify-start items-start gap-4";
+    const footerListStyle = "flex flex-col justify-start items-start gap-4 classic:gap-2";
     const footerLinkStyle =
-        "text-base whimsical:text-lg classic:text-lg classic:text-classic-blue underline hover:font-semibold";
+        "text-base whimsical:text-lg classic:text-lg classic:text-classic-blue underline hover:font-semibold transition-all ease-in-out";
 
     return (
         <nav
@@ -63,7 +32,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                         grace manning
                     </h1>
                     <h2 className="leading-4 tech:text-sm whimsical:text-base whimsical:md:text-lg classic:text-base classic:md:text-lg">
-                        creative technologist & software engineer
+                        creative technologist
                     </h2>
                 </Link>
             )}
