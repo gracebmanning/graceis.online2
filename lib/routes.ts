@@ -9,8 +9,8 @@ const PATHS = {
     about: { name: "about", href: "/about" },
     projects: { name: "projects", href: "/projects" },
     blog: { name: "blog", href: "/blog" },
-    support: { name: "support", href: "/support" },
-    sources: { name: "sources", href: "/sources" },
+    support: { name: "support my work", href: "/support" },
+    sources: { name: "image sources", href: "/sources" },
     sitemap: { name: "sitemap", href: "/sitemap.xml", target: "_blank" },
     instagram: {
         name: "instagram",

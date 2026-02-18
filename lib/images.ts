@@ -137,3 +137,20 @@ export const email: ImageAsset = {
         url: "",
     },
 };
+
+export const ImageSources = [
+    // LINES
+    // dottedLine,
+    // handDrawnLine,
+    // ICONS
+    embroideredstar,
+    ladybug,
+    lunamoth,
+    fish,
+    bear,
+    strawberry,
+    instagram,
+    youtube,
+    cd,
+    email,
+];
