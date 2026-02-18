@@ -11,7 +11,7 @@ export default function ThemeSwitcher() {
         <select
             value={theme || "tech"}
             onChange={(event) => setTheme(event.target.value)}
-            className="w-fit border tech:rounded-sm whimsical:rounded-sm classic:border-classic-gray"
+            className="w-fit h-6 font-body border tech:rounded-sm whimsical:rounded-sm classic:border-classic-gray"
         >
             {themes.map((themeOption) => (
                 <option key={themeOption} value={themeOption} className="bg-background">

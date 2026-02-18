@@ -8,23 +8,23 @@
 :root,
 [data-theme="tech"] {
     --current-header: var(--font-michroma);
-    --current-body: var(--font-fira-mono);
-    --current-decorative: var(--font-b612);
+    --current-decorative: var(--font-fira-mono);
     --current-decorative-two: var(--font-barcode);
+    --current-body: var(--font-b612);
 }
 
 [data-theme="whimsical"] {
     --current-header: var(--font-lacquer);
-    --current-body: var(--font-inter);
     --current-decorative: var(--font-mountains-of-christmas);
     --current-decorative-two: var(--font-mountains-of-christmas);
+    --current-body: var(--font-inter);
 }
 
 [data-theme="classic"] {
     --current-header: var(--font-times-new-roman);
-    --current-body: var(--font-times-new-roman);
     --current-decorative: var(--font-times-new-roman);
     --current-decorative-two: var(--font-times-new-roman);
+    --current-body: var(--font-times-new-roman);
 }
 
 @theme inline {

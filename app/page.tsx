@@ -24,7 +24,14 @@ const Email = () => {
                 height={217}
                 className="hidden classic:block w-16 h-16"
             />
-            <span className="tech:font-decorative-two">hello [@] graceis.online</span>
+            <div>
+                <p className="hidden w-fit classic:block classic:bg-classic-yellow classic:text-lg classic:md:text-xl">
+                    EMAIL ME!
+                </p>
+                <p className="tech:font-decorative-two tech:text-4xl tech:md:text-5xl whimsical:font-header whimsical:text-2xl whimsical:md:text-3xl classic:text-xl classic:md:text-2xl">
+                    hello [@] graceis.online
+                </p>
+            </div>
         </div>
     );
 };

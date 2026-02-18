@@ -7,7 +7,6 @@ import {
     B612,
     Libre_Barcode_128_Text,
     Lacquer,
-    Mountains_of_Christmas,
     Inter,
 } from "next/font/google";
 import "./globals.css";
@@ -47,12 +46,20 @@ const lacquer = Lacquer({
     weight: ["400"],
 });
 
-const mountainsOfChristmas = Mountains_of_Christmas({
+const mountainsOfChristmas = localFont({
     variable: "--font-mountains-of-christmas",
-    subsets: ["latin"],
-    weight: ["400", "700"],
-    display: "swap",
-    adjustFontFallback: false,
+    src: [
+        {
+            path: "../public/fonts/Mountains_of_Christmas/MountainsofChristmas-Regular.ttf",
+            weight: "400",
+            style: "normal",
+        },
+        {
+            path: "../public/fonts/Mountains_of_Christmas/MountainsofChristmas-Bold.ttf",
+            weight: "700",
+            style: "normal",
+        },
+    ],
 });
 
 const inter = Inter({
@@ -64,29 +71,29 @@ const inter = Inter({
 
 // THEME 3 (Classic)
 const timesNewRoman = localFont({
+    variable: "--font-times-new-roman",
     src: [
         {
-            path: "../public/fonts/times.ttf",
+            path: "../public/fonts/Times_New_Roman/times.ttf",
             weight: "400",
             style: "normal",
         },
         {
-            path: "../public/fonts/timesi.ttf",
+            path: "../public/fonts/Times_New_Roman/timesi.ttf",
             weight: "400",
             style: "italic",
         },
         {
-            path: "../public/fonts/timesbd.ttf",
+            path: "../public/fonts/Times_New_Roman/timesbd.ttf",
             weight: "700",
             style: "normal",
         },
         {
-            path: "../public/fonts/timesbi.ttf",
+            path: "../public/fonts/Times_New_Roman/timesbi.ttf",
             weight: "700",
             style: "italic",
         },
     ],
-    variable: "--font-times-new-roman",
 });
 
 export const metadata: Metadata = {
@@ -109,7 +116,7 @@ export default function RootLayout({
                     antialiased`}
             suppressHydrationWarning
         >
-            <body suppressHydrationWarning>
+            <body className="w-dvw h-dvh" suppressHydrationWarning>
                 <ThemeProvider attribute="data-theme" defaultTheme="tech" themes={themes}>
                     {children}
                 </ThemeProvider>
