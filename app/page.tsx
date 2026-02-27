@@ -5,7 +5,7 @@ import { embroideredstar, dottedLine, handDrawnLine, cd, email, whiteRabbit } fr
 
 const Email = () => {
     return (
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center px-7">
             <Image
                 src={cd.src}
                 alt={cd.alt}
@@ -40,8 +40,15 @@ export default function Home() {
                 alt={whiteRabbit.alt}
                 width={800}
                 height={1200}
-                className="hidden whimsical:block absolute bottom-0 right-0 z-0 w-[35%] md:w-[25%]"
+                className="hidden whimsical:block absolute bottom-0 right-0 z-0 w-[35%] md:w-[20%]"
             />
+            <div className="hidden tech:block fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-95">
+                <div className="absolute w-12 h-12 rounded-full blur-xs bg-tech-green bottom-50 md:bottom-50 left-5 scale-80 md:scale-100"></div>
+                <div className="absolute w-18 h-18 rounded-full blur-xs bg-tech-gray bottom-30 md:bottom-25 left-10 scale-80 md:scale-100"></div>
+                <div className="absolute w-75 h-75 rounded-full blur-xs bg-tech-gray bottom-50 md:bottom-60 -right-40 md:-right-45 scale-80 md:scale-100"></div>
+                <div className="absolute w-17.75 h-17.75 rounded-full blur-xs bg-tech-green bottom-60 right-30 md:right-35 scale-80 md:scale-100"></div>
+                <div className="absolute w-37.5 h-37.5 rounded-full blur-xs bg-tech-pink-200 bottom-25 md:bottom-20 right-5 scale-80 md:scale-100"></div>
+            </div>
             <div className="relative p-8 lg:p-10 z-10">
                 <div className="w-full flex flex-row gap-2 justify-start items-center">
                     <Image
