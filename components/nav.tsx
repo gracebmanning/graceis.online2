@@ -24,7 +24,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
 
     return (
         <nav
-            className={`h-full font-decorative flex flex-col justify-start items-start gap-10 pt-4 pb-6 ${isHome ? "px-8" : "w-53.75 px-3 tech:bg-tech-gray/10 whimsical:bg-whim-green-200/40 classic:border-r classic:border-r-classic-gray"}`}
+            className={`h-full font-decorative flex flex-col justify-start items-start gap-10 pt-4 pb-6 ${isHome ? "px-8" : "w-53.75 fixed px-3 tech:bg-tech-gray/10 whimsical:bg-whim-green-200/40 classic:border-r classic:border-r-classic-gray"}`}
         >
             {!isHome && (
                 <Link href="/" className="flex flex-col gap-2">

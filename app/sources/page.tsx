@@ -14,16 +14,19 @@ export default function Sources() {
                     <th scope="col" className="border">
                         Source
                     </th>
+                    <th scope="col" className="border">
+                        Alt Text
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 {ImageSources.map((image: ImageAsset, index) => (
                     <tr key={index}>
-                        <td className="border p-2">
+                        <td className="border p-2 min-w-24">
                             <Image
                                 src={image.src}
                                 alt={image.alt}
-                                className="object-contain w-16 h-16"
+                                className="object-contain w-20 h-20"
                             />
                         </td>
                         <td className="border p-2">
@@ -43,6 +46,9 @@ export default function Sources() {
                                     <span>{image.source.note}</span>
                                 )}
                             </p>
+                        </td>
+                        <td className="border p-2">
+                            <p>{image.alt}</p>
                         </td>
                     </tr>
                 ))}
