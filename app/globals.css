@@ -97,6 +97,15 @@
     --color-classic-yellow: #ffff00;
     --color-classic-green: #00ff00;
     --color-classic-blue: #0000ff;
+
+    ::-moz-selection {
+        /* Code for Firefox */
+        @apply bg-whim-lavender-100;
+    }
+
+    ::selection {
+        @apply bg-whim-lavender-100;
+    }
 }
 
 body {
@@ -110,4 +119,13 @@ h2,
 h3,
 h4 {
     font-family: var(--current-header);
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    background: var(--color-whim-lavender-100);
+}
+
+::selection {
+    background: var(--color-whim-lavender-100);
 }
