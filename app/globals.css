@@ -97,15 +97,6 @@
     --color-classic-yellow: #ffff00;
     --color-classic-green: #00ff00;
     --color-classic-blue: #0000ff;
-
-    ::-moz-selection {
-        /* Code for Firefox */
-        @apply bg-whim-lavender-100;
-    }
-
-    ::selection {
-        @apply bg-whim-lavender-100;
-    }
 }
 
 body {
