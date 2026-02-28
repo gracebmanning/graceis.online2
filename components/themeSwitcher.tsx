@@ -5,8 +5,6 @@ import { themes } from "@/lib/themes";
 export default function ThemeSwitcher() {
     const { theme, setTheme } = useTheme();
 
-    console.log(theme);
-
     return (
         <select
             value={theme || "tech"}
