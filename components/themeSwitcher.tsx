@@ -9,7 +9,7 @@ export default function ThemeSwitcher() {
         <select
             value={theme || "tech"}
             onChange={(event) => setTheme(event.target.value)}
-            className="w-fit h-6 bg-background/50 font-body border tech:rounded-sm whimsical:rounded-sm classic:border-classic-gray"
+            className="w-fit px-1 py-0.5 bg-background/50 font-body border tech:rounded-sm whimsical:rounded-sm classic:border-classic-gray hover:cursor-pointer"
         >
             {themes.map((themeOption) => (
                 <option key={themeOption} value={themeOption} className="bg-background">
