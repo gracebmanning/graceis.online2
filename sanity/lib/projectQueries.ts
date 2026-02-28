@@ -42,6 +42,32 @@ export const personalProjectsQuery = `*[_type == "project" && type == "personal"
     ongoing,
 }`;
 
+export const projectsQuery = `*[_type == "project"]{
+    _id,
+    title,
+    slug,
+    description,
+    date,
+    thumbnail {
+        alt,
+        asset->{
+            url,
+            metadata {
+                dimensions {
+                    width,
+                    height
+                }
+            }
+        }
+    },
+    tags[]->{
+      title,
+      slug
+    },
+    featured,
+    ongoing,
+}`;
+
 // get a single project by its slug
 export const projectQuery = `*[_type == "project" && slug.current == $slug][0]{
     _id,

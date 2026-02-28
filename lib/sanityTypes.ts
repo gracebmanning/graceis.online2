@@ -24,6 +24,12 @@ export interface SanityImage {
     alt?: string;
     asset?: {
         url: string;
+        metadata: {
+            dimensions: {
+                width: number;
+                height: number;
+            };
+        };
     };
 }
 

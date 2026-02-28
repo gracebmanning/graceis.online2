@@ -68,6 +68,9 @@ export function ProjectTile({ project, onClick }: { project: Project; onClick?: 
                 <Image
                     src={project.thumbnail.asset.url}
                     alt={project.thumbnail.alt || project.title}
+                    width={project.thumbnail.asset.metadata.dimensions.width}
+                    height={project.thumbnail.asset.metadata.dimensions.height}
+                    style={{ width: "350px", height: "auto" }}
                 />
             )}
             <div>
