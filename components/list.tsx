@@ -90,7 +90,7 @@ export function List({
     }, [sortedItems, searchQuery, selectedTag, type]);
 
     return (
-        <div className="flex flex-col justify-center items-start gap-2">
+        <div className="w-full flex flex-col justify-center items-start">
             <div className="w-full flex flex-col justify-center items-start gap-2 pb-2 border-b border-b-foreground">
                 <div className="flex flex-row justify-start items-center gap-4">
                     <ListSearch
@@ -107,7 +107,7 @@ export function List({
                     onFilterChange={handleTagClick}
                 />
             </div>
-            <div>
+            <div className="w-full flex flex-col">
                 {filteredItems.length > 0 ? (
                     filteredItems.map((item, index) => {
                         if (type === "blog") {
