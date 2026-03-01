@@ -47,7 +47,7 @@ export function ExternalLinkButton({ externalLink }: { externalLink: ExternalLin
             className={basicButtonStyle}
         >
             {externalLink.linkText}
-            <MdArrowOutward className="ml-0.5 text-lg" />
+            <MdArrowOutward className="text-lg" />
         </a>
     );
 }

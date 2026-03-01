@@ -51,7 +51,7 @@ export function ProjectPage({ project }: { project: Project }) {
                     <h1 className="font-bold leading-6 tech:text-lg whimsical:text-2xl whimsical:lowercase classic:text-2xl">
                         {project.title}
                     </h1>
-                    <div className="flex flex-row justify-start items-center gap-2 md:gap-4">
+                    <div className="flex flex-col justify-center items-start md:flex-row md:justify-start md:items-center gap-x-2 md:gap-x-4">
                         {project.date && <p>{`published ${formatMoYrDate(project.date)}`}</p>}
                         {project.externalLink && (
                             <ExternalLinkButton externalLink={project.externalLink} />

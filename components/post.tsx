@@ -45,7 +45,7 @@ export function PostPage({ post }: { post: BlogPost }) {
                     <h1 className="font-bold leading-6 tech:text-lg whimsical:text-2xl whimsical:lowercase classic:text-2xl">
                         {post.title}
                     </h1>
-                    <div className="flex flex-row justify-start items-center gap-2 md:gap-4">
+                    <div className="flex flex-row justify-start items-center gap-x-2 md:gap-x-4 flex-wrap">
                         <p>{`published ${formatISODate(post.publishedAt)}`}</p>
                         {post._updatedAt && (
                             <>
