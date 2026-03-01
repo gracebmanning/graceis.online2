@@ -1,4 +1,5 @@
 "use client";
+import { useCallback } from "react";
 import { type Project } from "@/lib/sanityTypes";
 import { BackButton, BackToTopButton, ExternalLinkButton } from "./buttons";
 import { formatMoYrDate } from "@/util/formatMoYrDate";
@@ -12,12 +13,12 @@ import ScrollProgressBar from "./scrollProgressBar";
 export function ProjectPage({ project }: { project: Project }) {
     const scrollRef = useScrollRef();
 
-    const scrollToTop = () => {
+    const scrollToTop = useCallback(() => {
         scrollRef.current?.scrollTo({
             top: 0,
             behavior: "smooth",
         });
-    };
+    }, [scrollRef]);
 
     return (
         <div className="relative">
@@ -56,6 +57,7 @@ export function ProjectPage({ project }: { project: Project }) {
                         width={project.thumbnail.asset.metadata.dimensions.width}
                         height={project.thumbnail.asset.metadata.dimensions.height}
                         className="w-full h-auto mb-6"
+                        priority
                     />
                 )}
                 {project.body ? (

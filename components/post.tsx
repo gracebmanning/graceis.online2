@@ -1,4 +1,5 @@
 "use client";
+import { useCallback } from "react";
 import { useScrollRef } from "./scrollContext";
 import { type BlogPost } from "@/lib/sanityTypes";
 import { BackButton, BackToTopButton } from "./buttons";
@@ -9,12 +10,12 @@ import PortableTextComponent from "./portableText";
 
 export function PostPage({ post }: { post: BlogPost }) {
     const scrollRef = useScrollRef();
-    const scrollToTop = () => {
+    const scrollToTop = useCallback(() => {
         scrollRef.current?.scrollTo({
             top: 0,
             behavior: "smooth",
         });
-    };
+    }, [scrollRef]);
 
     return (
         <div className="relative">
