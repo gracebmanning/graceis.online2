@@ -1,5 +1,7 @@
+import { groq } from "next-sanity";
+
 // get all blog posts
-export const postsQuery = `*[_type == "blogPost"]{
+export const postsQuery = groq`*[_type == "blogPost"]{
     _id,
     _createdAt,
     title,
@@ -14,7 +16,7 @@ export const postsQuery = `*[_type == "blogPost"]{
 }`;
 
 // get a single post by its slug
-export const postQuery = `*[_type == "blogPost" && slug.current == $slug][0]{
+export const postQuery = groq`*[_type == "blogPost" && slug.current == $slug][0]{
     _id,
     _createdAt,
     title,
@@ -44,9 +46,14 @@ export const postQuery = `*[_type == "blogPost" && slug.current == $slug][0]{
 }`;
 
 // get all tags
-export const tagsQuery = `*[_type == "blogTag"]{
+export const tagsQuery = groq`*[_type == "blogTag"]{
     _id,
     title,
     slug,
     description
+}`;
+
+export const postsQuery_sitemap = groq`*[_type == "blogPost"] {
+  "slug": slug.current,
+  "date": _updatedAt
 }`;

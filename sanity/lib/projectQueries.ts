@@ -1,5 +1,7 @@
+import { groq } from "next-sanity";
+
 // get all commercial projects
-export const commercialProjectsQuery = `*[_type == "project" && type == "commercial"]{
+export const commercialProjectsQuery = groq`*[_type == "project" && type == "commercial"]{
     _id,
     title,
     slug,
@@ -21,7 +23,7 @@ export const commercialProjectsQuery = `*[_type == "project" && type == "commerc
 }`;
 
 // get all personal projects
-export const personalProjectsQuery = `*[_type == "project" && type == "personal"]{
+export const personalProjectsQuery = groq`*[_type == "project" && type == "personal"]{
     _id,
     title,
     slug,
@@ -42,7 +44,7 @@ export const personalProjectsQuery = `*[_type == "project" && type == "personal"
     ongoing,
 }`;
 
-export const projectsQuery = `*[_type == "project"]{
+export const projectsQuery = groq`*[_type == "project"]{
     _id,
     title,
     slug,
@@ -69,7 +71,7 @@ export const projectsQuery = `*[_type == "project"]{
 }`;
 
 // get a single project by its slug
-export const projectQuery = `*[_type == "project" && slug.current == $slug][0]{
+export const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
     _id,
     title,
     slug,
@@ -102,9 +104,14 @@ export const projectQuery = `*[_type == "project" && slug.current == $slug][0]{
 }`;
 
 // get all tags
-export const tagsQuery = `*[_type == "projectTag"]{
+export const tagsQuery = groq`*[_type == "projectTag"]{
     _id,
     title,
     slug,
     description
+}`;
+
+export const projectsQuery_sitemap = groq`*[_type == "project"]{
+    "slug": slug.current,
+    "date": _updatedAt
 }`;
