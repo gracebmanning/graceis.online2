@@ -18,5 +18,5 @@ export default async function Page(props: Props) {
         content = "Loading...";
     }
 
-    return <StandardLayout content={content} />;
+    return <StandardLayout content={content} hideBg={true} />;
 }

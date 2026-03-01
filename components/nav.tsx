@@ -31,7 +31,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
     return (
         <>
             {!isHome && (
-                <div className="md:hidden fixed w-full top-0 left-0 h-16 z-50 flex flex-row justify-between items-center px-4 tech:bg-tech-gray-50 whimsical:bg-whim-green-200 classic:bg-classic-gray-50 classic:border-b classic:shadow-sm">
+                <div className="md:hidden fixed w-full top-0 left-0 h-12 z-50 flex flex-row justify-between items-center px-4 tech:bg-tech-gray-50 whimsical:bg-whim-green-200 classic:bg-classic-gray-50 classic:border-b classic:shadow-sm">
                     <Link href="/" className="font-header" onClick={() => setIsOpen(false)}>
                         <h1 className="leading-6 tech:text-xl whimsical:text-2xl classic:text-2xl">
                             grace manning
@@ -51,7 +51,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                     ${
                         isHome
                             ? "relative h-full px-8"
-                            : `fixed top-16 md:top-0 left-0 w-full md:w-53.75 h-[calc(100vh-4rem)] md:h-screen px-3 tech:bg-tech-gray-50 whimsical:bg-whim-green-200 classic:bg-classic-gray-50 md:classic:border-r md:classic:border-r-classic-gray
+                            : `fixed top-12 md:top-0 left-0 w-full md:w-53.75 h-[calc(100vh-2rem)] md:h-screen px-6 md:px-3 tech:bg-tech-gray-50 whimsical:bg-whim-green-200 classic:bg-classic-gray-50 md:classic:border-r md:classic:border-r-classic-gray
                                 ${isOpen ? "translate-x-0 z-50" : "-translate-x-full"} md:translate-x-0`
                     }`}
             >

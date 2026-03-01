@@ -91,8 +91,8 @@ export function List({
 
     return (
         <div className="w-full flex flex-col justify-center items-start">
-            <div className="w-full flex flex-col justify-center items-start gap-2 pb-2 border-b border-b-foreground">
-                <div className="flex flex-row justify-start items-center gap-4">
+            <div className="w-full flex flex-col justify-center items-start gap-2 py-2 border-b border-b-foreground bg-background/40">
+                <div className="flex flex-row flex-wrap justify-start items-center gap-x-4 gap-y-2">
                     <ListSearch
                         searchInput={searchInput}
                         setSearchInput={handleSearchInputChange}
