@@ -1,12 +1,11 @@
 import { NavMenu } from "@/components/nav";
+import ScrollContainer from "./scrollContainer";
 
 export default function StandardLayout({ content }: { content: React.ReactNode }) {
     return (
         <div className="w-full h-screen flex flex-row justify-start items-start overflow-hidden">
             <NavMenu isHome={false} />
-            <main className="h-full w-full md:ml-53.75 px-4 pt-20 md:pt-4 pb-20 overflow-y-auto">
-                {content}
-            </main>
+            <ScrollContainer>{content}</ScrollContainer>
         </div>
     );
 }

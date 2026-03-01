@@ -49,7 +49,7 @@ export function BlogTile({ post, onClick }: { post: BlogPost; onClick?: () => vo
             className={`w-full flex flex-col gap-2 py-4 border-b border-b-foreground transition-colors ${tileHoverColors}`}
         >
             <div className="w-full flex flex-row justify-start items-center flex-wrap gap-2">
-                {post.tags?.map((tag, index) => (
+                {post.tags?.sort().map((tag, index) => (
                     <Badge key={index} size={"small"} type={"blog"} text={tag.title} />
                 ))}
             </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FiArrowLeft, FiArrowUp } from "react-icons/fi";
 
-const basicButtonStyle = `w-fit border border-foreground px-2 py-1 rounded-sm flex flex-row justify-start items-center gap-1
+const basicButtonStyle = `w-fit text-foreground bg-background border border-foreground px-2 py-0.5 rounded-sm flex flex-row justify-start items-center gap-1
     hover:cursor-pointer hover:text-background hover:bg-foreground transition-colors duration-200 ease-in-out`;
 
 export function BackButton({ path }: { path: string }) {
@@ -13,9 +13,9 @@ export function BackButton({ path }: { path: string }) {
     );
 }
 
-export function BackToTopButton() {
+export function BackToTopButton({ onClick }: { onClick: () => void }) {
     return (
-        <button className={basicButtonStyle}>
+        <button className={`${basicButtonStyle} shadow-md`} onClick={onClick}>
             <FiArrowUp />
             back to top
         </button>
