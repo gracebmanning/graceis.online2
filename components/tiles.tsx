@@ -80,7 +80,7 @@ export function ProjectTile({ project, onClick }: { project: Project; onClick?: 
                     alt={project.thumbnail.alt || project.title}
                     width={project.thumbnail.asset.metadata.dimensions.width}
                     height={project.thumbnail.asset.metadata.dimensions.height}
-                    style={{ width: "350px", height: "auto" }}
+                    className="w-80 md:w-75 h-auto"
                 />
             )}
             <div className="flex flex-col justify-center items-start gap-1">

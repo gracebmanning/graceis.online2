@@ -79,7 +79,13 @@ export const projectQuery = `*[_type == "project" && slug.current == $slug][0]{
     thumbnail {
         alt,
         asset->{
-            url
+            url,
+            metadata {
+                dimensions {
+                    width,
+                    height
+                }
+            }
         }
     },
     externalLink{

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { FiArrowLeft, FiArrowUp } from "react-icons/fi";
+import { MdArrowOutward } from "react-icons/md";
+import { ExternalLink } from "@/lib/sanityTypes";
 
-const basicButtonStyle = `w-fit text-foreground bg-background border border-foreground px-2 py-0.5 rounded-sm flex flex-row justify-start items-center gap-1
+const basicButtonStyle = `w-fit text-foreground bg-background border border-foreground px-2 py-px rounded-xl flex flex-row justify-start items-center gap-1
     hover:cursor-pointer hover:text-background hover:bg-foreground transition-colors duration-200 ease-in-out`;
 
 export function BackButton({ path }: { path: string }) {
@@ -33,5 +35,19 @@ export function SearchButton({ handleSearch }: { handleSearch: () => void }) {
         >
             Search
         </button>
+    );
+}
+
+export function ExternalLinkButton({ externalLink }: { externalLink: ExternalLink }) {
+    return (
+        <a
+            href={externalLink.linkURL}
+            target="_blank"
+            rel="noreferrer"
+            className={basicButtonStyle}
+        >
+            {externalLink.linkText}
+            <MdArrowOutward className="ml-0.5 text-lg" />
+        </a>
     );
 }
