@@ -7,7 +7,17 @@ import { FOOTER_LINKS } from "@/lib/routes";
 import Link from "next/link";
 import ThemeSwitcher from "./themeSwitcher";
 import Image from "next/image";
-import { ladybug, lunamoth, fish, bear, strawberry, instagram, youtube } from "@/lib/images";
+import {
+    ladybug,
+    lunamoth,
+    fish,
+    bear,
+    strawberry,
+    instagram,
+    youtube,
+    whiteRabbit,
+    computer,
+} from "@/lib/images";
 import { FiX, FiMenu } from "react-icons/fi";
 
 const whimsicalMainImages = [ladybug, lunamoth, fish];
@@ -26,7 +36,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
 
     const footerListStyle = "flex flex-col justify-start items-start gap-4 classic:gap-2";
     const footerLinkStyle =
-        "text-base whimsical:text-lg classic:text-lg classic:text-classic-blue underline hover:font-semibold transition-all ease-in-out";
+        "text-base whimsical:text-xl classic:text-xl classic:text-classic-blue underline hover:font-semibold transition-all ease-in-out";
 
     return (
         <>
@@ -47,7 +57,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                 </div>
             )}
             <nav
-                className={`font-decorative flex flex-col justify-start items-start gap-10 pt-4 pb-10 
+                className={`font-decorative flex flex-col justify-start items-start gap-10 pt-4 pb-20 md:pb-10 
                     ${
                         isHome
                             ? "relative h-full px-8"
@@ -142,6 +152,18 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                                 </li>
                             ))}
                         </ul>
+                        <Image
+                            className="hidden classic:block"
+                            src={computer.src}
+                            alt={computer.alt}
+                        />
+                        <Image
+                            src={whiteRabbit.src}
+                            alt={whiteRabbit.alt}
+                            width={800}
+                            height={1200}
+                            className="hidden whimsical:block w-25 bg-background/10"
+                        />
                     </div>
                 )}
             </nav>

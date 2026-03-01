@@ -5,7 +5,7 @@ import { MdArrowOutward } from "react-icons/md";
 
 export default function Sources() {
     const content = (
-        <table className="border">
+        <table className="border mt-2 bg-background/50">
             <thead className="border">
                 <tr>
                     <th scope="col" className="border">

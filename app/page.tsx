@@ -1,7 +1,15 @@
 import Image from "next/image";
 import ThemeSwitcher from "@/components/themeSwitcher";
 import { NavMenu } from "@/components/nav";
-import { embroideredstar, dottedLine, handDrawnLine, cd, email, whiteRabbit } from "@/lib/images";
+import {
+    embroideredstar,
+    dottedLine,
+    handDrawnLine,
+    cd,
+    email,
+    whiteRabbit,
+    computer,
+} from "@/lib/images";
 
 const Email = () => {
     return (
@@ -83,6 +91,7 @@ export default function Home() {
                 <div className="mt-10 flex flex-col justify-start items-start gap-10">
                     <NavMenu isHome={true} />
                     <Email />
+                    <Image className="hidden classic:block" src={computer.src} alt={computer.alt} />
                 </div>
             </div>
         </div>

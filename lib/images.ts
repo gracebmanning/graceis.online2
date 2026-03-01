@@ -22,6 +22,7 @@ import emailImg from "@/public/images/email.png";
 
 // OTHER
 import graceImg from "@/public/images/grace3-tape.png";
+import computerGif from "@/public/gifs/computer.gif";
 
 type InternalSource = {
     origin: "internal";
@@ -174,6 +175,15 @@ export const grace: ImageAsset = {
     },
 };
 
+export const computer: ImageAsset = {
+    src: computerGif,
+    alt: "Retro-style cartoon animation of a beige desktop computer with arms typing energetically on its keyboard below, featuring a teal screen with a smiley face and friendly eyes sitting on its monitor.",
+    source: {
+        origin: "external",
+        url: "https://web.archive.org/web/20090728150149/http://es.geocities.com/christianzevallos/",
+    },
+};
+
 export const ImageSources = [
     // BACKGROUNDS
     daisies,
@@ -197,4 +207,5 @@ export const ImageSources = [
 
     // OTHER
     grace,
+    computer,
 ];
