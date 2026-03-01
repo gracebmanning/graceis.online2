@@ -52,7 +52,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                         isHome
                             ? "relative h-full px-8"
                             : `fixed top-16 md:top-0 left-0 w-full md:w-53.75 h-[calc(100vh-4rem)] md:h-screen px-3 tech:bg-tech-gray-50 whimsical:bg-whim-green-200 classic:bg-classic-gray-50 md:classic:border-r md:classic:border-r-classic-gray
-                                ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`
+                                ${isOpen ? "translate-x-0 z-50" : "-translate-x-full"} md:translate-x-0`
                     }`}
             >
                 {!isHome && (

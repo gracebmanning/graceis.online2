@@ -58,7 +58,7 @@ export default function Home() {
                         height={50}
                     />
                     <div className="w-full flex flex-col">
-                        <h1 className="text-3xl md:text-5xl">grace manning</h1>
+                        <h1 className="text-4xl md:text-5xl">grace manning</h1>
                         <div className="w-full flex flex-col gap-4 md:gap-0 md:flex-row md:justify-between md:items-end">
                             <h2 className="text-xl md:text-2xl">creative technologist</h2>
                             <ThemeSwitcher />
