@@ -25,7 +25,22 @@ export const postQuery = `*[_type == "blogPost" && slug.current == $slug][0]{
       title,
       slug
     },
-    body
+    body[]{
+        ...,
+        _type == "image" => {
+            ...,
+            asset->{
+                "_ref": _id,
+                url,
+                metadata {
+                    dimensions {
+                        width,
+                        height
+                    }
+                }
+            }
+        }
+    }
 }`;
 
 // get all tags

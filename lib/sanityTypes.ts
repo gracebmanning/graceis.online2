@@ -1,4 +1,5 @@
-// Portable Text (Block Content) Types
+import { PortableTextBlock } from "next-sanity";
+
 export interface Slug {
     current: string;
 }
@@ -8,10 +9,7 @@ export interface Span {
     text?: string;
 }
 
-export interface Block {
-    _type: string;
-    children?: Span[];
-}
+export type Block = PortableTextBlock;
 
 export interface Tag {
     _id: string;
@@ -23,6 +21,7 @@ export interface Tag {
 export interface SanityImage {
     alt?: string;
     asset?: {
+        _ref: string;
         url: string;
         metadata: {
             dimensions: {
@@ -31,6 +30,30 @@ export interface SanityImage {
             };
         };
     };
+}
+
+export interface ImageBlock extends SanityImage {
+    _type: "image";
+    caption?: string;
+}
+
+export interface VideoBlock {
+    _key: string;
+    videoSource?: "url" | "cloudfront";
+    videoURL?: string;
+    videoFileName?: string;
+    caption?: string;
+}
+
+export interface VideoRowBlock {
+    _type: "videoRow";
+    videos?: VideoBlock[];
+}
+
+export interface CodeBlock {
+    _type: "code";
+    code: string;
+    language: string;
 }
 
 export interface ExternalLink {
