@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { type Project } from "@/lib/sanityTypes";
 import { BackButton, BackToTopButton, ExternalLinkButton } from "./buttons";
 import { formatMoYrDate } from "@/util/formatMoYrDate";
@@ -8,9 +7,9 @@ import { useScrollRef } from "./scrollContext";
 import PortableTextComponent from "./portableText";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import ScrollProgressBar from "./scrollProgressBar";
 
 export function ProjectPage({ project }: { project: Project }) {
-    const [progress, setProgress] = useState(0);
     const scrollRef = useScrollRef();
 
     const scrollToTop = () => {
@@ -19,26 +18,6 @@ export function ProjectPage({ project }: { project: Project }) {
             behavior: "smooth",
         });
     };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (!scrollRef.current) return;
-
-            const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-            const totalHeight = scrollHeight - clientHeight;
-            setProgress(totalHeight > 0 ? (scrollTop / totalHeight) * 100 : 0);
-        };
-
-        scrollRef.current?.addEventListener("scroll", handleScroll);
-        handleScroll();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        return () => scrollRef.current?.removeEventListener("scroll", handleScroll);
-    }, [scrollRef]);
-
-    // const source = urlFor(project.thumbnail).url();
-    // const width = project.thumbnail?.asset?.metadata?.dimensions?.width || 1000;
-    // const height = project.thumbnail?.asset?.metadata?.dimensions?.height || 1000;
 
     return (
         <div className="relative">
@@ -67,10 +46,7 @@ export function ProjectPage({ project }: { project: Project }) {
                         </ul>
                     )}
                 </div>
-                <div
-                    className="mt-1 h-1.5 tech:bg-tech-pink-200 whimsical:bg-whim-green-500 classic:bg-classic-red/70"
-                    style={{ width: `${progress}%` }}
-                ></div>
+                <ScrollProgressBar />
             </div>
             <div className="mt-6 text-foreground max-w-5xl">
                 {project.thumbnail?.asset?.url && (

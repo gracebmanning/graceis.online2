@@ -1,38 +1,20 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useScrollRef } from "./scrollContext";
 import { type BlogPost } from "@/lib/sanityTypes";
 import { BackButton, BackToTopButton } from "./buttons";
 import { formatISODate } from "@/util/formatISODate";
 import Badge from "./badge";
-import { useScrollRef } from "./scrollContext";
+import ScrollProgressBar from "./scrollProgressBar";
 import PortableTextComponent from "./portableText";
 
 export function PostPage({ post }: { post: BlogPost }) {
-    const [progress, setProgress] = useState(0);
     const scrollRef = useScrollRef();
-
     const scrollToTop = () => {
         scrollRef.current?.scrollTo({
             top: 0,
             behavior: "smooth",
         });
     };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (!scrollRef.current) return;
-
-            const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-            const totalHeight = scrollHeight - clientHeight;
-            setProgress(totalHeight > 0 ? (scrollTop / totalHeight) * 100 : 0);
-        };
-
-        scrollRef.current?.addEventListener("scroll", handleScroll);
-        handleScroll();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        return () => scrollRef.current?.removeEventListener("scroll", handleScroll);
-    }, [scrollRef]);
 
     return (
         <div className="relative">
@@ -64,10 +46,7 @@ export function PostPage({ post }: { post: BlogPost }) {
                         </ul>
                     )}
                 </div>
-                <div
-                    className="mt-1 h-1.5 tech:bg-tech-pink-200 whimsical:bg-whim-green-500 classic:bg-classic-red/70"
-                    style={{ width: `${progress}%` }}
-                ></div>
+                <ScrollProgressBar />
             </div>
             <div className="mt-8 text-foreground max-w-5xl">
                 {post.body ? (
