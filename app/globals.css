@@ -43,6 +43,18 @@
     --color-tech-green: #dbe9a3;
     --color-tech-blue: #bfd7ff;
 
+    --color-tech-gray-50: #f2f2f3;
+    --color-tech-gray-100: #dadbdc;
+    --color-tech-gray-200: #c3c4c6;
+    --color-tech-gray-300: #abadb0;
+    --color-tech-gray-400: #93969a;
+    --color-tech-gray-500: #75787d;
+    --color-tech-gray-600: #65686c;
+    --color-tech-gray-700: #4f5154;
+    --color-tech-gray-800: #393a3c;
+    --color-tech-gray-900: #232325;
+    --color-tech-gray-950: #0c0d0d;
+
     --color-tech-pink-50: #fce8f2;
     --color-tech-pink-100: #f7bfda;
     --color-tech-pink-200: #f087b9; /* color from graceis.online logo */
@@ -97,6 +109,18 @@
     --color-classic-yellow: #ffff00;
     --color-classic-green: #00ff00;
     --color-classic-blue: #0000ff;
+
+    --color-classic-gray-50: #f2f2f3;
+    --color-classic-gray-100: #dadbdc;
+    --color-classic-gray-200: #c3c4c6;
+    --color-classic-gray-300: #abadb0;
+    --color-classic-gray-400: #93969a;
+    --color-classic-gray-500: #75787d;
+    --color-classic-gray-600: #65686c;
+    --color-classic-gray-700: #4f5154;
+    --color-classic-gray-800: #393a3c;
+    --color-classic-gray-900: #232325;
+    --color-classic-gray-950: #0c0d0d;
 }
 
 body {
