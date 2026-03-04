@@ -29,19 +29,19 @@ const nextConfig: NextConfig = {
             {
                 source: "/yt",
                 destination:
-                    "https://graceis.online/?utm_source=youtube&utm_medium=video&utm_campaign=channel_bio",
+                    "https://graceis.online/?utm_source=youtube&utm_medium=social&utm_campaign=channel_bio",
                 permanent: false,
             },
             {
                 source: "/ytv",
                 destination:
-                    "https://graceis.online/?utm_source=youtube&utm_medium=video&utm_campaign=description",
+                    "https://graceis.online/?utm_source=youtube&utm_medium=social&utm_campaign=description",
                 permanent: false,
             },
             {
                 source: "/ytp",
                 destination:
-                    "https://graceis.online/?utm_source=youtube&utm_medium=video&utm_campaign=pinned_comment",
+                    "https://graceis.online/?utm_source=youtube&utm_medium=social&utm_campaign=pinned_comment",
                 permanent: false,
             },
             {
