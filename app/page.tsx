@@ -17,8 +17,8 @@ const Email = () => {
             <Image
                 src={cd.src}
                 alt={cd.alt}
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 className="hidden tech:block w-16 h-16"
             />
             <Image
@@ -42,7 +42,7 @@ const Email = () => {
 
 export default function Home() {
     return (
-        <div className="relative h-screen">
+        <main className="relative h-screen">
             <Image
                 src={whiteRabbit.src}
                 alt={whiteRabbit.alt}
@@ -58,7 +58,10 @@ export default function Home() {
                 <div className="absolute w-37.5 h-37.5 rounded-full blur-xs bg-tech-pink-200 bottom-25 md:bottom-20 right-5 scale-80 md:scale-100"></div>
             </div>
             <div className="relative p-8 lg:p-10 z-10">
-                <div className="w-full flex flex-row gap-2 justify-start items-center">
+                <div
+                    className="w-full flex flex-row gap-2 justify-start items-center"
+                    role="banner"
+                >
                     <Image
                         src={embroideredstar.src}
                         alt={embroideredstar.alt}
@@ -94,6 +97,6 @@ export default function Home() {
                     <Image className="hidden classic:block" src={computer.src} alt={computer.alt} />
                 </div>
             </div>
-        </div>
+        </main>
     );
 }

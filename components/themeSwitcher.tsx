@@ -7,6 +7,7 @@ export default function ThemeSwitcher() {
 
     return (
         <select
+            aria-label="site theme selection"
             value={theme || "tech"}
             onChange={(event) => setTheme(event.target.value)}
             className="w-fit px-1 py-0.5 bg-background/50 font-body border tech:rounded-sm whimsical:rounded-sm classic:border-classic-gray hover:cursor-pointer"
