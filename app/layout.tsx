@@ -12,6 +12,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { themes } from "@/lib/themes";
+import UtmCleaner from "@/components/utmCleaner";
 
 // THEME 1 (Tech)
 const michroma = Michroma({
@@ -123,6 +124,7 @@ export default function RootLayout({
                         {children}
                     </div>
                 </ThemeProvider>
+                <UtmCleaner />
             </body>
             {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
                 <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
