@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import {
     Michroma,
     Fira_Mono,
@@ -123,6 +124,9 @@ export default function RootLayout({
                     </div>
                 </ThemeProvider>
             </body>
+            {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+                <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
+            )}
         </html>
     );
 }
