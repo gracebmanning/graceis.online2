@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Suspense } from "react";
 import {
     Michroma,
     Fira_Mono,
@@ -124,7 +125,9 @@ export default function RootLayout({
                         {children}
                     </div>
                 </ThemeProvider>
-                <UtmCleaner />
+                <Suspense fallback={null}>
+                    <UtmCleaner />
+                </Suspense>
             </body>
             {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
                 <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
