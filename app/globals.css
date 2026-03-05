@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @custom-variant tech (&:where([data-theme="tech"], [data-theme="tech"] *));
 @custom-variant whimsical (&:where([data-theme="whimsical"], [data-theme="whimsical"] *));
