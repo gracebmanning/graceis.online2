@@ -1,29 +1,26 @@
+"use client";
 import Image from "next/image";
 import ThemeSwitcher from "@/components/themeSwitcher";
 import { NavMenu } from "@/components/nav";
 import { embroideredstar } from "@/lib/images";
-import {
-    EmailAssets,
-    HomePageBgAssets,
-    HomePageDividerLine,
-    HomePageLowerImage,
-} from "@/components/themeAssets";
+import dynamic from "next/dynamic";
 
-const Email = () => {
-    return (
-        <div className="flex flex-row items-center px-7">
-            <EmailAssets />
-            <div className="px-3">
-                <p className="hidden w-fit classic:block classic:bg-classic-yellow classic:text-lg classic:md:text-xl">
-                    EMAIL ME!
-                </p>
-                <p className="tech:font-decorative-two tech:text-4xl tech:md:text-5xl whimsical:font-header whimsical:text-2xl whimsical:md:text-3xl classic:text-xl classic:md:text-2xl">
-                    hello [@] graceis.online
-                </p>
-            </div>
-        </div>
-    );
-};
+const HomePageBgAssets = dynamic(
+    () => import("@/components/themeAssets").then((mod) => mod.HomePageBgAssets),
+    { ssr: false },
+);
+const EmailAssets = dynamic(
+    () => import("@/components/themeAssets").then((mod) => mod.EmailAssets),
+    { ssr: false },
+);
+const HomePageDividerLine = dynamic(
+    () => import("@/components/themeAssets").then((mod) => mod.HomePageDividerLine),
+    { ssr: false },
+);
+const HomePageLowerImage = dynamic(
+    () => import("@/components/themeAssets").then((mod) => mod.HomePageLowerImage),
+    { ssr: false },
+);
 
 export default function Home() {
     return (
@@ -52,7 +49,17 @@ export default function Home() {
                 <HomePageDividerLine />
                 <div className="mt-10 flex flex-col justify-start items-start gap-10">
                     <NavMenu isHome={true} />
-                    <Email />
+                    <div className="flex flex-row items-center px-7">
+                        <EmailAssets />
+                        <div className="px-3">
+                            <p className="hidden w-fit classic:block classic:bg-classic-yellow classic:text-lg classic:md:text-xl">
+                                EMAIL ME!
+                            </p>
+                            <p className="tech:font-decorative-two tech:text-4xl tech:md:text-5xl whimsical:font-header whimsical:text-2xl whimsical:md:text-3xl classic:text-xl classic:md:text-2xl">
+                                hello [@] graceis.online
+                            </p>
+                        </div>
+                    </div>
                     <HomePageLowerImage />
                 </div>
             </div>
