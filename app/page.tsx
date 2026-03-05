@@ -1,33 +1,18 @@
 import Image from "next/image";
 import ThemeSwitcher from "@/components/themeSwitcher";
 import { NavMenu } from "@/components/nav";
+import { embroideredstar } from "@/lib/images";
 import {
-    embroideredstar,
-    dottedLine,
-    handDrawnLine,
-    cd,
-    email,
-    whiteRabbit,
-    computer,
-} from "@/lib/images";
+    EmailAssets,
+    HomePageBgAssets,
+    HomePageDividerLine,
+    HomePageLowerImage,
+} from "@/components/themeAssets";
 
 const Email = () => {
     return (
         <div className="flex flex-row items-center px-7">
-            <Image
-                src={cd.src}
-                alt={cd.alt}
-                width={500}
-                height={500}
-                className="hidden tech:block w-16 h-16"
-            />
-            <Image
-                src={email.src}
-                alt={email.alt}
-                width={217}
-                height={217}
-                className="hidden classic:block w-16 h-16"
-            />
+            <EmailAssets />
             <div className="px-3">
                 <p className="hidden w-fit classic:block classic:bg-classic-yellow classic:text-lg classic:md:text-xl">
                     EMAIL ME!
@@ -43,20 +28,7 @@ const Email = () => {
 export default function Home() {
     return (
         <main className="relative h-screen">
-            <Image
-                src={whiteRabbit.src}
-                alt={whiteRabbit.alt}
-                width={800}
-                height={1200}
-                className="hidden whimsical:block absolute bottom-0 right-0 z-0 w-[35%] md:w-[20%]"
-            />
-            <div className="hidden tech:block fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-95">
-                <div className="absolute w-12 h-12 rounded-full blur-xs bg-tech-green bottom-50 md:bottom-50 left-5 scale-80 md:scale-100"></div>
-                <div className="absolute w-18 h-18 rounded-full blur-xs bg-tech-gray bottom-30 md:bottom-25 left-10 scale-80 md:scale-100"></div>
-                <div className="absolute w-75 h-75 rounded-full blur-xs bg-tech-gray bottom-50 md:bottom-60 -right-40 md:-right-45 scale-80 md:scale-100"></div>
-                <div className="absolute w-17.75 h-17.75 rounded-full blur-xs bg-tech-green bottom-60 right-30 md:right-35 scale-80 md:scale-100"></div>
-                <div className="absolute w-37.5 h-37.5 rounded-full blur-xs bg-tech-pink-200 bottom-25 md:bottom-20 right-5 scale-80 md:scale-100"></div>
-            </div>
+            <HomePageBgAssets />
             <div className="relative p-8 lg:p-10 z-10">
                 <div
                     className="w-full flex flex-row gap-2 justify-start items-center"
@@ -67,6 +39,7 @@ export default function Home() {
                         alt={embroideredstar.alt}
                         width={50}
                         height={50}
+                        className="w-12.5 h-auto"
                     />
                     <div className="w-full flex flex-col">
                         <h1 className="text-4xl md:text-5xl">grace manning</h1>
@@ -76,25 +49,11 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="hidden tech:block w-full overflow-hidden">
-                    <Image
-                        className="mt-2 min-w-500 object-left"
-                        src={dottedLine.src}
-                        alt={dottedLine.alt}
-                    />
-                </div>
-                <div className="hidden whimsical:block w-full overflow-hidden">
-                    <Image
-                        className="mt-3 min-w-500 object-left"
-                        src={handDrawnLine.src}
-                        alt={handDrawnLine.alt}
-                    />
-                </div>
-                <div className="hidden classic:block w-full border-b-2 border-b-classic-gray drop-shadow-lg mt-2" />
+                <HomePageDividerLine />
                 <div className="mt-10 flex flex-col justify-start items-start gap-10">
                     <NavMenu isHome={true} />
                     <Email />
-                    <Image className="hidden classic:block" src={computer.src} alt={computer.alt} />
+                    <HomePageLowerImage />
                 </div>
             </div>
         </main>

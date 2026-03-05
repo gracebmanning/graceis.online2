@@ -7,18 +7,9 @@ import { FOOTER_LINKS } from "@/lib/routes";
 import Link from "next/link";
 import ThemeSwitcher from "./themeSwitcher";
 import Image from "next/image";
-import {
-    ladybug,
-    lunamoth,
-    fish,
-    bear,
-    strawberry,
-    instagram,
-    youtube,
-    whiteRabbit,
-    computer,
-} from "@/lib/images";
+import { ladybug, lunamoth, fish, bear, strawberry, instagram, youtube } from "@/lib/images";
 import { FiX, FiMenu } from "react-icons/fi";
+import { NavLowerImage } from "./themeAssets";
 
 const whimsicalMainImages = [ladybug, lunamoth, fish];
 const whimsicalSocialImages = [bear, strawberry];
@@ -156,18 +147,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                                 </li>
                             ))}
                         </ul>
-                        <Image
-                            className="hidden classic:block"
-                            src={computer.src}
-                            alt={computer.alt}
-                        />
-                        <Image
-                            src={whiteRabbit.src}
-                            alt={whiteRabbit.alt}
-                            width={800}
-                            height={1200}
-                            className="hidden whimsical:block w-25 bg-background/10"
-                        />
+                        <NavLowerImage />
                     </div>
                 )}
             </nav>
