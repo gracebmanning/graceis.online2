@@ -76,7 +76,7 @@ export function HomePageLowerImage() {
     const { theme } = useTheme();
 
     if (theme === "classic") {
-        return <Image className="hidden classic:block" src={computer.src} alt={computer.alt} />;
+        return <Image src={computer.src} alt={computer.alt} />;
     } else {
         return null;
     }
@@ -96,7 +96,7 @@ export function NavLowerImage() {
             />
         );
     } else if (theme === "classic") {
-        return <Image className="" src={computer.src} alt={computer.alt} />;
+        return <Image src={computer.src} alt={computer.alt} />;
     } else {
         return null;
     }

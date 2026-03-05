@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { MAIN_LINKS } from "@/lib/routes";
 import { SOCIAL_LINKS } from "@/lib/routes";
 import { FOOTER_LINKS } from "@/lib/routes";
@@ -17,6 +18,7 @@ const classicSocialImages = [instagram, youtube];
 
 export const NavMenu = ({ isHome }: { isHome: boolean }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
 
     const navCircle = "w-8 h-8 rounded-full blur-xs";
     const techCircleColors = ["bg-tech-pink-200", "bg-tech-gray", "bg-tech-green"];
@@ -75,30 +77,33 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                     </Link>
                 )}
                 <ul className={navListStyle}>
-                    {MAIN_LINKS.map((link, index) => (
-                        <li
-                            key={link.href}
-                            className="classic:text-classic-blue classic:list-disc classic:ml-4"
-                        >
-                            <Link
-                                href={link.href}
-                                className={navLinkStyle}
-                                onClick={() => setIsOpen(false)}
+                    {MAIN_LINKS.map((link, index) => {
+                        const isActive = pathname.startsWith(link.href);
+                        return (
+                            <li
+                                key={link.href}
+                                className="classic:text-classic-blue classic:list-disc classic:ml-4"
                             >
-                                <div
-                                    className={`hidden tech:block ${navCircle} ${techCircleColors[index]}`}
-                                ></div>
-                                <Image
-                                    src={whimsicalMainImages[index].src}
-                                    alt={whimsicalMainImages[index].alt}
-                                    width={130}
-                                    height={130}
-                                    className="hidden whimsical:block w-12 h-12"
-                                />
-                                {link.name}
-                            </Link>
-                        </li>
-                    ))}
+                                <Link
+                                    href={link.href}
+                                    className={`${navLinkStyle} ${isActive ? "font-bold" : "font-normal"}`}
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <div
+                                        className={`hidden tech:block ${navCircle} ${techCircleColors[index]}`}
+                                    ></div>
+                                    <Image
+                                        src={whimsicalMainImages[index].src}
+                                        alt={whimsicalMainImages[index].alt}
+                                        width={130}
+                                        height={130}
+                                        className="hidden whimsical:block w-12 h-12"
+                                    />
+                                    {link.name}
+                                </Link>
+                            </li>
+                        );
+                    })}
                 </ul>
                 <ul className={navListStyle}>
                     {SOCIAL_LINKS.map((link, index) => (
@@ -135,17 +140,20 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                     <div className="mt-auto flex flex-col gap-8">
                         <ThemeSwitcher />
                         <ul className={footerListStyle}>
-                            {FOOTER_LINKS.map((link) => (
-                                <li key={link.href}>
-                                    <Link
-                                        href={link.href}
-                                        className={footerLinkStyle}
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
+                            {FOOTER_LINKS.map((link) => {
+                                const isActive = pathname === link.href;
+                                return (
+                                    <li key={link.href}>
+                                        <Link
+                                            href={link.href}
+                                            className={`${footerLinkStyle} ${isActive ? "font-bold" : "font-normal"}`}
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
                         </ul>
                         <NavLowerImage />
                     </div>
