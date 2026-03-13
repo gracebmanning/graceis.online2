@@ -20,12 +20,12 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
 
-    const navCircle = "w-8 h-8 rounded-full blur-xs";
+    const navCircle = "w-8 h-8 rounded-full blur-xs group-hover:blur-none";
     const techCircleColors = ["bg-tech-pink-200", "bg-tech-gray", "bg-tech-green"];
 
     const navListStyle = "flex flex-col justify-start items-start gap-4 classic:gap-2";
     const navLinkStyle =
-        "flex flex-row justify-start items-center gap-4 classic:gap-2 text-xl whimsical:text-2xl whimsical:md:text-3xl classic:underline hover:font-semibold transition-all ease-in-out";
+        "group flex flex-row justify-start items-center gap-4 classic:gap-2 text-xl whimsical:text-2xl whimsical:md:text-3xl classic:underline hover:font-semibold transition-all ease-in-out";
 
     const footerListStyle = "flex flex-col justify-start items-start gap-4 classic:gap-2";
     const footerLinkStyle =
@@ -53,7 +53,7 @@ export const NavMenu = ({ isHome }: { isHome: boolean }) => {
                 </div>
             )}
             <nav
-                className={`font-decorative flex flex-col justify-start items-start gap-10 pt-4 pb-20 md:pb-10 
+                className={`font-decorative flex flex-col justify-start items-start gap-10 pt-4 pb-20 md:pb-10
                     ${
                         isHome
                             ? "relative h-full px-8"
