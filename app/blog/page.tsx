@@ -1,11 +1,11 @@
 import StandardLayout from "@/components/standardLayout";
-import { postsQuery, tagsQuery } from "@/sanity/lib/blogQueries";
+import { postsQuery, blogTagsQuery } from "@/sanity/lib/blogQueries";
 import { sanityFetch } from "@/sanity/lib/live";
 import { List } from "@/components/list";
 
 export default async function Blog() {
     const posts = await sanityFetch({ query: postsQuery });
-    const tags = await sanityFetch({ query: tagsQuery });
+    const tags = await sanityFetch({ query: blogTagsQuery });
 
     let content = null;
     if (posts && tags) {

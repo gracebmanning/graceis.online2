@@ -12,6 +12,18 @@ export const postsQuery = groq`*[_type == "blogPost"]{
       title,
       slug
     },
+    thumbnail {
+        alt,
+        asset->{
+            url,
+            metadata {
+                dimensions {
+                    width,
+                    height
+                }
+            }
+        }
+    },
     body
 }`;
 
@@ -26,6 +38,18 @@ export const postQuery = groq`*[_type == "blogPost" && slug.current == $slug][0]
     tags[]->{
       title,
       slug
+    },
+    thumbnail {
+        alt,
+        asset->{
+            url,
+            metadata {
+                dimensions {
+                    width,
+                    height
+                }
+            }
+        }
     },
     body[]{
         ...,
@@ -46,7 +70,7 @@ export const postQuery = groq`*[_type == "blogPost" && slug.current == $slug][0]
 }`;
 
 // get all tags
-export const tagsQuery = groq`*[_type == "blogTag"]{
+export const blogTagsQuery = groq`*[_type == "blogTag"]{
     _id,
     title,
     slug,

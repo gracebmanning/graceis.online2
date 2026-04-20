@@ -101,11 +101,13 @@ export function List({
                     />
                     <ListSort sortOrder={sortOrder} setSortOrder={setSortOrder} />
                 </div>
-                <ListFilter
-                    filters={tagsArray}
-                    activeFilter={selectedTag}
-                    onFilterChange={handleTagClick}
-                />
+                {type === "blog" && (
+                    <ListFilter
+                        filters={tagsArray}
+                        activeFilter={selectedTag}
+                        onFilterChange={handleTagClick}
+                    />
+                )}
             </div>
             <div className="w-full flex flex-col">
                 {filteredItems.length > 0 ? (

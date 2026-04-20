@@ -69,6 +69,7 @@ export interface BlogPost {
     slug: Slug;
     publishedAt: string;
     tags?: Tag[];
+    thumbnail?: SanityImage;
     body?: Block[];
 }
 

@@ -33,19 +33,6 @@ export default defineType({
             },
         }),
         defineField({
-            name: "type",
-            title: "Type",
-            type: "string",
-            options: {
-                list: [
-                    { title: "Personal", value: "personal" },
-                    { title: "Commercial", value: "commercial" },
-                ],
-                layout: "radio",
-                direction: "horizontal",
-            },
-        }), // personal or commercial
-        defineField({
             name: "thumbnail",
             title: "Thumbnail",
             type: "image",
@@ -83,11 +70,6 @@ export default defineType({
         defineField({
             name: "featured",
             title: "Featured",
-            type: "boolean",
-        }),
-        defineField({
-            name: "ongoing",
-            title: "Ongoing",
             type: "boolean",
         }),
         defineField({

@@ -1,49 +1,5 @@
 import { groq } from "next-sanity";
 
-// get all commercial projects
-export const commercialProjectsQuery = groq`*[_type == "project" && type == "commercial"]{
-    _id,
-    title,
-    slug,
-    description,
-    date,
-    type,
-    thumbnail {
-        alt,
-        asset->{
-            url
-        }
-    },
-    tags[]->{
-      title,
-      slug
-    },
-    featured,
-    ongoing,
-}`;
-
-// get all personal projects
-export const personalProjectsQuery = groq`*[_type == "project" && type == "personal"]{
-    _id,
-    title,
-    slug,
-    description,
-    date,
-    type,
-    thumbnail {
-        alt,
-        asset->{
-            url
-        }
-    },
-    tags[]->{
-      title,
-      slug
-    },
-    featured,
-    ongoing,
-}`;
-
 export const projectsQuery = groq`*[_type == "project"]{
     _id,
     title,
@@ -104,7 +60,7 @@ export const projectQuery = groq`*[_type == "project" && slug.current == $slug][
 }`;
 
 // get all tags
-export const tagsQuery = groq`*[_type == "projectTag"]{
+export const projectTagsQuery = groq`*[_type == "projectTag"]{
     _id,
     title,
     slug,

@@ -17,7 +17,7 @@ function createPreview(body?: Block[], wordLimit = 50) {
     // Extract all text from the blocks, ignoring images and other non-text types.
     const text = body
         // Find all blocks of type 'block' that have children
-        .filter((block) => block._type === "block" && block.children)
+        .filter((block) => block._type === "block" && block.children && block.style === "normal")
         // For each block, join the text of its children (spans)
         .map((block) =>
             (block.children || [])
@@ -46,21 +46,32 @@ export function BlogTile({ post, onClick }: { post: BlogPost; onClick?: () => vo
         <Link
             href={href}
             onClick={onClick}
-            className={`w-full flex flex-col gap-2 py-4 bg-background/40 border-b border-b-foreground transition-colors ${tileHoverColors}`}
+            className={`w-full flex flex-col md:flex-row md:justify-start md:items-center gap-2 py-4 bg-background/40 border-b border-b-foreground transition-colors ${tileHoverColors}`}
         >
-            <div className="w-full flex flex-row justify-start items-center flex-wrap gap-2">
-                {post.tags?.sort().map((tag, index) => (
-                    <Badge key={index} size={"small"} type={"blog"} text={tag.title} />
-                ))}
-            </div>
+            {post.thumbnail?.asset?.url && (
+                <Image
+                    src={post.thumbnail.asset.url}
+                    alt={post.thumbnail.alt || post.title}
+                    width={post.thumbnail.asset.metadata.dimensions.width}
+                    height={post.thumbnail.asset.metadata.dimensions.height}
+                    className="w-full md:w-65 h-auto tech:rounded-sm whimsical:rounded-sm classic:rounded-none"
+                />
+            )}
+            <div className="flex flex-col justify-center items-start gap-1">
+                <div className="w-full flex flex-row justify-start items-center flex-wrap gap-2">
+                    {post.tags?.sort().map((tag, index) => (
+                        <Badge key={index} size={"small"} type={"blog"} text={tag.title} />
+                    ))}
+                </div>
 
-            <h2 className="font-bold tech:text-xl whimsical:lowercase whimsical:text-2xl classic:text-2xl">
-                {post.title}
-            </h2>
-            <h3 className="whimsical:lowercase whimsical:text-lg">
-                {formatISODate(post.publishedAt)}
-            </h3>
-            <p>{createPreview(post.body)}</p>
+                <h2 className="font-bold tech:text-xl whimsical:lowercase whimsical:text-2xl classic:text-2xl">
+                    {post.title}
+                </h2>
+                <h3 className="font-semibold tech:text-sm whimsical:lowercase whimsical:text-lg">
+                    {formatISODate(post.publishedAt)}
+                </h3>
+                <p className="tech:text-sm">{createPreview(post.body, 30)}</p>
+            </div>
         </Link>
     );
 }
@@ -80,7 +91,7 @@ export function ProjectTile({ project, onClick }: { project: Project; onClick?: 
                     alt={project.thumbnail.alt || project.title}
                     width={project.thumbnail.asset.metadata.dimensions.width}
                     height={project.thumbnail.asset.metadata.dimensions.height}
-                    className="w-80 md:w-75 h-auto"
+                    className="w-full md:w-70 h-auto tech:rounded-sm whimsical:rounded-sm classic:rounded-none"
                 />
             )}
             <div className="flex flex-col justify-center items-start gap-1">
@@ -89,13 +100,12 @@ export function ProjectTile({ project, onClick }: { project: Project; onClick?: 
                 </h3>
                 {project.date && <p>{formatMoYrDate(project.date)}</p>}
                 <div className="w-full flex flex-row justify-start items-center flex-wrap gap-2">
-                    {project.tags?.map((tag, index) => (
-                        <Badge key={index} size={"small"} type={tag.title} text={tag.title} />
-                    ))}
                     {project.featured && (
                         <Badge size={"small"} type={"featured"} text={"featured"} />
                     )}
-                    {project.ongoing && <Badge size={"small"} type={"ongoing"} text={"ongoing"} />}
+                    {project.tags?.map((tag, index) => (
+                        <Badge key={index} size={"small"} type={"skill"} text={tag.title} />
+                    ))}
                 </div>
                 <p>{project.description}</p>
             </div>

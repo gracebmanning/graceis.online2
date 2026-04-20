@@ -1,11 +1,11 @@
 import StandardLayout from "@/components/standardLayout";
-import { projectsQuery, tagsQuery } from "@/sanity/lib/projectQueries";
+import { projectsQuery, projectTagsQuery } from "@/sanity/lib/projectQueries";
 import { sanityFetch } from "@/sanity/lib/live";
 import { List } from "@/components/list";
 
 export default async function Projects() {
     const projects = await sanityFetch({ query: projectsQuery });
-    const tags = await sanityFetch({ query: tagsQuery });
+    const tags = await sanityFetch({ query: projectTagsQuery });
 
     let content = null;
     if (projects && tags) {

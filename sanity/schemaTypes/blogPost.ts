@@ -32,6 +32,18 @@ export default defineType({
         }),
         // for updated date, use _updatedAt attribute
         defineField({
+            name: "thumbnail",
+            title: "Thumbnail",
+            type: "image",
+            fields: [
+                defineField({
+                    name: "alt",
+                    type: "string",
+                    title: "Alternative text",
+                }),
+            ],
+        }),
+        defineField({
             name: "body",
             title: "Body",
             type: "blockContent",
