@@ -1,43 +1,49 @@
 import StandardLayout from "@/components/standardLayout";
 import { grace } from "@/lib/images";
 import Image from "next/image";
-import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import { IconType } from "react-icons";
+import {
+    FiMail,
+    FiGithub,
+    FiLinkedin,
+    FiMonitor,
+    FiPenTool,
+    FiGlobe,
+    FiBriefcase,
+} from "react-icons/fi";
 import { MdArrowOutward } from "react-icons/md";
 
-const roadmapItems: {
-    title: string;
-    description: string;
-}[] = [
+const services = [
     {
-        title: "2012",
-        description:
-            "Learned how to code via Alice (see alice.org), then fell in love with making websites. By the age of 12, I had created several websites and games using HTML, CSS, and JavaScript.",
+        icon: FiMonitor,
+        text: "Custom websites designed in Figma and built in the platform that best suits your needs",
     },
     {
-        title: "2019-2023",
-        description:
-            "Attended UC Irvine (go anteaters!) and earned a B.S. in Computer Science. The industry went on a hiring freeze at the time I graduated, and I struggled to figure out what I wanted to do next.",
+        icon: FiPenTool,
+        text: "Brand asset kits: logos, color systems, reusable templates",
     },
     {
-        title: "Currently...",
-        description:
-            "I work part-time and freelance, so I wear many hats: software engineer, web developer, visual designer, marketing coordinator, graphic designer...the list goes on, and I'm currently expanding my work to include interactive & audio-reactive content using TouchDesigner. I still don't have it all figured out, but I know I enjoy creating fun technology that impacts people positively.",
+        icon: FiBriefcase,
+        text: "Marketing materials for events, trade shows, and campaigns",
+    },
+    {
+        icon: FiGlobe,
+        text: "Social media content and graphics (Instagram, LinkedIn, etc.)",
+    },
+    {
+        icon: FiMail,
+        text: "Custom HTML email templates",
     },
 ];
 
-function Roadmap({ items }: { items: { title: string; description: string }[] }) {
+function ServiceCard({ icon, text }: { icon: IconType; text: string }) {
+    const Icon = icon;
     return (
-        <div className="flex flex-col gap-8 relative w-full">
-            <div className="absolute left-5 top-0 bottom-0 w-1 bg-foreground rounded-lg" />
-            {items.map((item, index) => (
-                <div key={index} className="flex flex-row gap-6 relative max-w-5xl">
-                    <div className="flex items-center justify-center absolute left-2.5 w-6 h-6 bg-background border-2 border-foreground rounded-full classic:rounded-none z-10 shrink-0" />
-                    <div className="flex flex-col gap-2 ml-12 p-4 border border-foreground bg-background/60 rounded-lg classic:rounded-none">
-                        <h3 className="text-2xl whimsical:text-3xl font-semibold">{item.title}</h3>
-                        <p>{item.description}</p>
-                    </div>
-                </div>
-            ))}
+        <div className="flex flex-row items-center gap-1 not-first:pt-3 not-last:pb-3">
+            <span className="w-fit p-2 bg-foreground/10 rounded-md">
+                <Icon />
+            </span>
+            <p>{text}</p>
         </div>
     );
 }
@@ -46,8 +52,8 @@ export default function About() {
     const contactButtonStyle =
         "w-fit text-lg px-2 py-1 border border-foreground rounded-lg flex flex-row items-center gap-1";
     const content = (
-        <div className="flex flex-col gap-8">
-            <div className="flex flex-col items-start md:flex-row md:items-center gap-4">
+        <div className="max-w-4xl flex flex-col gap-8">
+            <div className="w-full flex flex-col items-start md:flex-row md:items-center gap-4">
                 <Image
                     src={grace.src}
                     alt={grace.alt}
@@ -55,12 +61,14 @@ export default function About() {
                     height={1486}
                     className="w-auto h-75 md:h-87.5"
                 />
-                <div className="flex flex-col items-start justify-center gap-4 p-2 max-w-lg bg-background/60 border border-foreground shadow-[10px_10px_0px_0px_rgba(24,24,24,1)]">
-                    <h2 className="tech:lowercase whimsical:lowercase text-2xl">
+                <div className="flex flex-col items-start justify-center gap-4 p-2 max-w-lg border border-foreground shadow-[10px_10px_0px_0px_rgba(24,24,24,1)]">
+                    <h2 className="tech:lowercase whimsical:lowercase text-2xl font-bold">
                         {"Hi, I'm Grace!"}
                     </h2>
                     <p className="text-xl">
-                        I am a creative technologist, software engineer, and maker of things.
+                        {
+                            "I'm a creative technologist who designs and builds websites, brand assets, and marketing materials for small businesses and creatives."
+                        }
                     </p>
                     <p className={`${contactButtonStyle} bg-foreground text-background`}>
                         <FiMail />
@@ -90,7 +98,33 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <Roadmap items={roadmapItems} />
+            <div className="w-full flex flex-col items-start justify-center gap-4 p-2 border border-foreground shadow-[10px_10px_0px_0px_rgba(24,24,24,1)]">
+                <h2 className="tech:lowercase whimsical:lowercase text-xl font-bold">
+                    {"More About Me"}
+                </h2>
+                <p className="text-lg">
+                    {
+                        "I've been building websites since I was 12, earned a B.S. in Computer Science from UC Irvine, and have spent several years as the in-house web, design, and marketing person for a small business, managing everything from the company website and trade show materials to LinkedIn content and internal software projects. I understand what it takes to keep a brand consistent and a project moving. Sound like what you need?"
+                    }
+                    &nbsp;
+                    <a
+                        href="mailto:hello@graceis.online"
+                        className="underline tech:text-tech-pink-700 whimsical:text-whim-green-800 classic:text-classic-blue hover:opacity-80"
+                    >
+                        {"Let's talk!"}
+                    </a>
+                </p>
+            </div>
+            <div className="w-full flex flex-col items-start justify-center gap-4 p-2 border border-foreground shadow-[10px_10px_0px_0px_rgba(24,24,24,1)]">
+                <h2 className="tech:lowercase whimsical:lowercase text-xl font-bold">
+                    {"What I Help With"}
+                </h2>
+                <div className="flex flex-col justify-center divide-y divide-foreground/50">
+                    {services.map((service, index) => (
+                        <ServiceCard key={index} icon={service.icon} text={service.text} />
+                    ))}
+                </div>
+            </div>
         </div>
     );
 
