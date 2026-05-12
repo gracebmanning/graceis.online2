@@ -34,11 +34,24 @@ const Heading = ({ level, children }: { level: number; children: React.ReactNode
             .catch((err) => console.error("Failed to copy link: ", err));
     };
 
+    const levelStylesMap: Record<number, string> = {
+        1: "text-3xl tech:text-tech-pink-300 whimsical:text-whim-green-800 classic:text-foreground",
+        2: "text-2xl tech:text-tech-pink-300 whimsical:text-whim-green-800 classic:text-foreground",
+        3: "text-xl tech:text-tech-pink-300/85 whimsical:text-whim-green-700 classic:text-classic-gray-800",
+        4: "text-lg tech:text-tech-pink-300 whimsical:text-whim-green-700 classic:text-classic-gray-800",
+        5: "text-base tech:text-tech-pink-300 whimsical:text-whim-green-700 classic:text-classic-gray-800",
+        6: "text-base tech:text-tech-pink-300 whimsical:text-whim-green-700 classic:text-classic-gray-800",
+    };
+
+    const borderBottomStyle =
+        "w-full border-b tech:border-b-tech-pink-300 whimsical:border-b-whim-green-800 classic:border-b-foreground";
+
     return (
-        <Tag id={id} className="group relative scroll-mt-32 flex items-center gap-2 mt-4 mb-1">
-            <span className="font-body text-xl font-bold tech:text-tech-pink-300 whimsical:text-whim-green-700 classic:text-foreground">
-                {children}
-            </span>
+        <Tag
+            id={id}
+            className={`group relative scroll-mt-32 flex items-center gap-2 mt-3 mb-1 ${level === 2 ? borderBottomStyle : ""}`}
+        >
+            <span className={`${levelStylesMap[level]} font-body font-bold`}>{children}</span>
             <button
                 onClick={() => handleCopyLink(id)}
                 className="opacity-0 transition-opacity duration-300 group-hover:opacity-100 p-1 text-tech-gray-400 hover:text-foreground bg-transparent border-none cursor-pointer"
@@ -75,6 +88,11 @@ const ptComponents = {
         h6: ({ children }: { children?: ReactNode }) => <Heading level={6}>{children}</Heading>,
         normal: ({ children }: { children?: ReactNode }) => (
             <p className="mb-4 classic:text-lg leading-relaxed">{children}</p>
+        ),
+        blockquote: ({ children }: { children?: ReactNode }) => (
+            <blockquote className="block pl-4 py-3 border-l-4 border-l-tech-gray bg-tech-gray/5 whimsical:border-l-whim-green-600/90 whimsical:bg-whim-green-600/5 mb-2">
+                {children}
+            </blockquote>
         ),
     },
     list: {
