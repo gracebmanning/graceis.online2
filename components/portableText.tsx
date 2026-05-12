@@ -129,6 +129,11 @@ const ptComponents = {
             <strong className="font-bold">{children}</strong>
         ),
         em: ({ children }: { children?: ReactNode }) => <em className="italic">{children}</em>,
+        code: ({ children }: { children?: ReactNode }) => (
+            <code className="bg-tech-gray/10 px-2 py-0.5 rounded text-base font-mono tech:text-blue-800 whimsical:text-whim-lavender-700 classic:text-classic-red">
+                {children}
+            </code>
+        ),
     },
 };
 
