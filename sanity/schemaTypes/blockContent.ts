@@ -72,20 +72,6 @@ export default defineType({
                     type: "string",
                     title: "Caption",
                 },
-                {
-                    name: "size",
-                    type: "string",
-                    title: "Size",
-                    options: {
-                        list: [
-                            { title: "small", value: "small" },
-                            { title: "medium", value: "medium" },
-                            { title: "large", value: "large" },
-                        ],
-                        layout: "dropdown",
-                        direction: "vertical",
-                    },
-                },
             ],
         }),
         defineArrayMember({
@@ -133,19 +119,6 @@ export default defineType({
                                     name: "caption",
                                     title: "Caption",
                                     type: "string",
-                                },
-                                {
-                                    name: "size",
-                                    title: "Size",
-                                    type: "string",
-                                    options: {
-                                        list: [
-                                            { title: "small", value: "small" },
-                                            { title: "medium", value: "medium" },
-                                            { title: "large", value: "large" },
-                                        ],
-                                        layout: "dropdown",
-                                    },
                                 },
                             ],
                         }),
