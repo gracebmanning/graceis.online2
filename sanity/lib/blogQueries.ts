@@ -3,6 +3,7 @@ import { groq } from "next-sanity";
 // get all blog posts
 export const postsQuery = groq`*[_type == "blogPost"]{
     _id,
+    _type,
     _createdAt,
     title,
     slug,
@@ -30,6 +31,7 @@ export const postsQuery = groq`*[_type == "blogPost"]{
 // get a single post by its slug
 export const postQuery = groq`*[_type == "blogPost" && slug.current == $slug][0]{
     _id,
+    _type,
     _createdAt,
     title,
     slug,
@@ -72,6 +74,7 @@ export const postQuery = groq`*[_type == "blogPost" && slug.current == $slug][0]
 // get all tags
 export const blogTagsQuery = groq`*[_type == "blogTag"]{
     _id,
+    _type,
     title,
     slug,
     description

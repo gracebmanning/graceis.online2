@@ -2,6 +2,7 @@ import { groq } from "next-sanity";
 
 export const projectsQuery = groq`*[_type == "project"]{
     _id,
+    _type,
     title,
     slug,
     description,
@@ -29,11 +30,11 @@ export const projectsQuery = groq`*[_type == "project"]{
 // get a single project by its slug
 export const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
     _id,
+    _type,
     title,
     slug,
     description,
     date,
-    type,
     thumbnail {
         alt,
         asset->{
@@ -62,6 +63,7 @@ export const projectQuery = groq`*[_type == "project" && slug.current == $slug][
 // get all tags
 export const projectTagsQuery = groq`*[_type == "projectTag"]{
     _id,
+    _type,
     title,
     slug,
     description

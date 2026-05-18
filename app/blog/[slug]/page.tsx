@@ -1,7 +1,7 @@
 import StandardLayout from "@/components/standardLayout";
 import { postQuery } from "@/sanity/lib/blogQueries";
 import { sanityFetch } from "@/sanity/lib/live";
-import { PostPage } from "@/components/post";
+import { Article } from "@/components/article";
 
 type Props = {
     params: { slug: string };
@@ -13,7 +13,7 @@ export default async function Page(props: Props) {
 
     let content = null;
     if (post) {
-        content = <PostPage post={post.data} />;
+        content = <Article article={post.data} />;
     } else {
         content = "Loading...";
     }

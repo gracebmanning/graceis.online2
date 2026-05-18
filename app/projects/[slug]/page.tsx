@@ -1,7 +1,7 @@
 import StandardLayout from "@/components/standardLayout";
 import { projectQuery } from "@/sanity/lib/projectQueries";
 import { sanityFetch } from "@/sanity/lib/live";
-import { ProjectPage } from "@/components/project";
+import { Article } from "@/components/article";
 
 type Props = {
     params: { slug: string };
@@ -13,7 +13,7 @@ export default async function Page(props: Props) {
 
     let content = null;
     if (project) {
-        content = <ProjectPage project={project.data} />;
+        content = <Article article={project.data} />;
     } else {
         content = "Loading...";
     }

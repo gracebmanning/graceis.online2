@@ -13,6 +13,7 @@ export type Block = PortableTextBlock;
 
 export interface Tag {
     _id: string;
+    _type: string;
     title: string;
     slug: Slug;
     description?: string;
@@ -63,6 +64,7 @@ export interface ExternalLink {
 
 export interface BlogPost {
     _id: string;
+    _type: "blogPost";
     _createdAt?: string;
     _updatedAt?: string;
     title: string;
@@ -75,6 +77,7 @@ export interface BlogPost {
 
 export interface Project {
     _id: string;
+    _type: "project";
     title: string;
     slug: Slug;
     description?: string;
