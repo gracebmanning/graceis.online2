@@ -36,7 +36,7 @@ const Heading = ({ level, children }: { level: number; children: React.ReactNode
 
     const levelStylesMap: Record<number, string> = {
         1: "text-3xl tech:text-tech-pink-300 whimsical:text-whim-green-800 classic:text-foreground",
-        2: "text-2xl tech:text-tech-pink-300 whimsical:text-whim-green-800 classic:text-foreground",
+        2: "text-2xl mt-4 tech:text-tech-pink-300 whimsical:text-whim-green-800 classic:text-foreground",
         3: "text-xl tech:text-tech-pink-300/85 whimsical:text-whim-green-700 classic:text-classic-gray-800",
         4: "text-lg tech:text-tech-pink-300 whimsical:text-whim-green-700 classic:text-classic-gray-800",
         5: "text-base tech:text-tech-pink-300 whimsical:text-whim-green-700 classic:text-classic-gray-800",
@@ -49,7 +49,7 @@ const Heading = ({ level, children }: { level: number; children: React.ReactNode
     return (
         <Tag
             id={id}
-            className={`group relative scroll-mt-32 flex items-center gap-2 mt-3 mb-1 ${level === 2 ? borderBottomStyle : ""}`}
+            className={`w-full group relative scroll-mt-32 flex items-center gap-2 mt-3 mb-1 ${level === 2 ? borderBottomStyle : ""}`}
         >
             <span className={`${levelStylesMap[level]} font-body font-bold`}>{children}</span>
             <button
@@ -76,7 +76,11 @@ const ptComponents = {
         },
         code: ({ value }: { value: { code: string; language: string } }) => {
             const { code, language } = value;
-            return <CodeBlock code={code} language={language} />;
+            return (
+                <div className="w-full max-w-3xl">
+                    <CodeBlock code={code} language={language} />
+                </div>
+            );
         },
     },
     block: {
@@ -87,28 +91,28 @@ const ptComponents = {
         h5: ({ children }: { children?: ReactNode }) => <Heading level={5}>{children}</Heading>,
         h6: ({ children }: { children?: ReactNode }) => <Heading level={6}>{children}</Heading>,
         normal: ({ children }: { children?: ReactNode }) => (
-            <p className="mb-4 classic:text-lg leading-relaxed">{children}</p>
+            <p className="w-full mb-4 classic:text-lg leading-relaxed">{children}</p>
         ),
         blockquote: ({ children }: { children?: ReactNode }) => (
-            <blockquote className="block pl-4 py-3 border-l-4 border-l-tech-gray bg-tech-gray/5 whimsical:border-l-whim-green-600/90 whimsical:bg-whim-green-600/5 mb-2">
+            <blockquote className="w-full block pl-4 py-3 border-l-4 border-l-tech-gray bg-tech-gray/5 whimsical:border-l-whim-green-600/90 whimsical:bg-whim-green-600/5 mb-2">
                 {children}
             </blockquote>
         ),
     },
     list: {
         bullet: ({ children }: { children?: ReactNode }) => (
-            <ul className="block list-disc my-1 pl-9">{children}</ul>
+            <ul className="w-full block list-disc my-1 pl-9">{children}</ul>
         ),
         number: ({ children }: { children?: ReactNode }) => (
-            <ol className="block list-decimal my-1 pl-9">{children}</ol>
+            <ol className="w-full block list-decimal my-1 pl-9">{children}</ol>
         ),
     },
     listItem: {
         bullet: ({ children }: { children?: ReactNode }) => (
-            <li className="list-item">{children}</li>
+            <li className="w-full list-item">{children}</li>
         ),
         number: ({ children }: { children?: ReactNode }) => (
-            <li className="list-item">{children}</li>
+            <li className="w-full list-item">{children}</li>
         ),
     },
     marks: {
@@ -119,7 +123,7 @@ const ptComponents = {
                     href={value?.href}
                     rel={rel}
                     target="_blank"
-                    className="underline tech:text-tech-pink-700 whimsical:text-whim-green-800 classic:text-classic-blue hover:opacity-80"
+                    className="w-fit underline tech:text-tech-pink-700 whimsical:text-whim-green-800 classic:text-classic-blue hover:opacity-80"
                 >
                     {children}
                 </a>
@@ -130,7 +134,7 @@ const ptComponents = {
         ),
         em: ({ children }: { children?: ReactNode }) => <em className="italic">{children}</em>,
         code: ({ children }: { children?: ReactNode }) => (
-            <code className="bg-tech-gray/10 px-2 py-0.5 rounded text-base font-mono tech:text-blue-800 whimsical:text-whim-lavender-700 classic:text-classic-red">
+            <code className="w-fit bg-tech-gray/10 px-2 py-0.5 rounded text-base font-mono tech:text-blue-800 whimsical:text-whim-lavender-700 classic:text-classic-red">
                 {children}
             </code>
         ),

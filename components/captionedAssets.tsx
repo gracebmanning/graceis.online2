@@ -14,7 +14,7 @@ export function CaptionedImage({ imageBlock }: { imageBlock: ImageBlock }) {
     const height = imageBlock.asset.metadata?.dimensions?.height || 1000;
 
     return (
-        <figure className="my-2">
+        <figure className="my-2 w-full max-w-3xl">
             <PhotoProvider>
                 <PhotoView src={source}>
                     <Image
@@ -94,7 +94,7 @@ export function VideoRow({ videos }: { videos: VideoBlock[] }) {
               : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
 
     return (
-        <div className={`grid w-full items-end gap-5 ${gridClasses}`}>
+        <div className={`grid w-full max-w-3xl items-end gap-5 ${gridClasses}`}>
             {videos.map((video, index) => {
                 return <CaptionedVideo key={index} video={video} />;
             })}

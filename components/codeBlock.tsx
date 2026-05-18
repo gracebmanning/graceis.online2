@@ -14,7 +14,7 @@ const CodeBlock = ({ code, language }: { code: string; language: string }) => {
             customStyle={{
                 padding: "1em",
                 marginBottom: "2em",
-                width: "90%",
+                width: "100%",
             }}
         >
             {code}
