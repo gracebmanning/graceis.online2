@@ -5,6 +5,7 @@ import CodeBlock from "./codeBlock";
 import { CaptionedImage, VideoRow } from "./captionedAssets";
 import { slugify } from "@/util/slugify";
 import { FiLink, FiCheck } from "react-icons/fi";
+import { MdArrowOutward } from "react-icons/md";
 import { type Block, type ImageBlock, type VideoRowBlock } from "@/lib/sanityTypes";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -117,15 +118,18 @@ const ptComponents = {
     },
     marks: {
         link: ({ children, value }: { children?: ReactNode; value?: { href: string } }) => {
-            const rel = !value?.href.startsWith("/") ? "noreferrer noopener" : undefined;
+            const external = !value?.href.startsWith("/");
+            const rel = external ? "noreferrer noopener" : undefined;
+            const target = external ? "_blank" : "_self";
             return (
                 <a
                     href={value?.href}
                     rel={rel}
-                    target="_blank"
-                    className="w-fit underline tech:text-tech-pink-700 whimsical:text-whim-green-800 classic:text-classic-blue hover:opacity-80"
+                    target={target}
+                    className="w-fit bg-tech-gray/10 px-1 rounded underline inline-flex items-center gap-x-0.5 tech:text-tech-pink-700 whimsical:text-whim-green-800 classic:text-classic-blue hover:opacity-80"
                 >
                     {children}
+                    {external && <MdArrowOutward />}
                 </a>
             );
         },
