@@ -3,7 +3,7 @@ import { FiArrowLeft, FiArrowUp } from "react-icons/fi";
 import { MdArrowOutward } from "react-icons/md";
 import { ExternalLink } from "@/lib/sanityTypes";
 
-const basicButtonStyle = `w-fit text-foreground bg-background border border-foreground px-2 py-px rounded-xl flex flex-row justify-start items-center gap-1
+const basicButtonStyle = `text-sm w-fit text-foreground bg-background border border-foreground px-2 py-px rounded-xl flex flex-row justify-start items-center gap-1
     hover:cursor-pointer hover:text-background hover:bg-foreground transition-colors duration-200 ease-in-out`;
 
 export function BackButton({ path }: { path: string }) {

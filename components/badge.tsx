@@ -15,7 +15,7 @@ function getColor(type: string) {
 export default function Badge({ size, type, text }: { size: string; type: string; text: string }) {
     return (
         <p
-            className={`w-fit px-2 py-0.5 rounded-lg font-medium ${size === "small" ? "text-base" : "text-lg"} ${getColor(type)}`}
+            className={`w-fit px-2 py-0.5 rounded-lg font-medium ${size === "small" ? "text-sm" : "text-base"} ${getColor(type)}`}
         >
             {text}
         </p>
