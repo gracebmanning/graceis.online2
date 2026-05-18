@@ -22,7 +22,7 @@ export function Article({ article }: { article: BlogPost | Project }) {
         <div className="relative">
             <ArticleHeader article={article} />
             <div className="w-full mt-8 text-foreground flex flex-col items-center">
-                <div className="w-full max-w-4xl flex flex-col items-center">
+                <div className="w-full max-w-4xl px-2 md:px-4 flex flex-col items-center">
                     {article._type === "project" && article.thumbnail?.asset?.url && (
                         <Image
                             src={urlFor(article.thumbnail).url()}
