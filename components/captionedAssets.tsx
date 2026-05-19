@@ -8,12 +8,12 @@ import { type ImageBlock, type VideoBlock } from "@/lib/sanityTypes";
 
 const captionStyle = "my-0.5 text-sm italic";
 
-export function CaptionedImage({ imageBlock }: { imageBlock: ImageBlock }) {
-    if (!imageBlock.asset?._ref) return;
+export function CaptionedImage({ image }: { image: ImageBlock }) {
+    if (!image.asset?._ref) return;
 
-    const source = urlFor(imageBlock).url();
-    const width = imageBlock.asset.metadata?.dimensions?.width || 1000;
-    const height = imageBlock.asset.metadata?.dimensions?.height || 1000;
+    const source = urlFor(image).url();
+    const width = image.asset.metadata?.dimensions?.width || 1000;
+    const height = image.asset.metadata?.dimensions?.height || 1000;
 
     return (
         <figure className="my-2 max-w-3xl mx-auto">
@@ -21,21 +21,31 @@ export function CaptionedImage({ imageBlock }: { imageBlock: ImageBlock }) {
                 <PhotoView src={source}>
                     <Image
                         src={source}
-                        alt={imageBlock.alt || "Blog image"}
+                        alt={image.alt || "Blog image"}
                         width={width}
                         height={height}
                         className="w-auto h-auto max-w-full max-h-[60vh] cursor-pointer"
                     />
                 </PhotoView>
             </PhotoProvider>
-            {imageBlock.caption && (
-                <figcaption className={captionStyle}>{imageBlock.caption}</figcaption>
-            )}
+            {image.caption && <figcaption className={captionStyle}>{image.caption}</figcaption>}
         </figure>
     );
 }
 
-export function CaptionedVideo({ video }: { video: VideoBlock }) {
+export function ImageRow({ images }: { images: ImageBlock[] }) {
+    const gridClasses = images.length === 1 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
+
+    return (
+        <div className={`grid w-full max-w-3xl items-end gap-5 ${gridClasses}`}>
+            {images.map((image, index) => {
+                return <CaptionedImage key={index} image={image} />;
+            })}
+        </div>
+    );
+}
+
+function CaptionedVideo({ video }: { video: VideoBlock }) {
     let finalSource = "";
     if (video.videoSource === "url" && video.videoURL) {
         finalSource = video.videoURL;
@@ -99,12 +109,7 @@ export function CaptionedVideo({ video }: { video: VideoBlock }) {
 }
 
 export function VideoRow({ videos }: { videos: VideoBlock[] }) {
-    const gridClasses =
-        videos.length === 1
-            ? "grid-cols-1"
-            : videos.length === 2
-              ? "grid-cols-1 sm:grid-cols-2"
-              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+    const gridClasses = videos.length === 1 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
 
     return (
         <div className={`grid w-full max-w-3xl items-end gap-5 ${gridClasses}`}>

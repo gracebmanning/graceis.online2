@@ -75,6 +75,37 @@ export default defineType({
             ],
         }),
         defineArrayMember({
+            name: "imageRow",
+            title: "Image Row",
+            type: "object",
+            fields: [
+                {
+                    name: "images",
+                    title: "Images",
+                    type: "array",
+                    validation: (Rule) => Rule.min(1).max(2),
+                    of: [
+                        defineArrayMember({
+                            type: "image",
+                            options: { hotspot: true },
+                            fields: [
+                                {
+                                    name: "alt",
+                                    type: "string",
+                                    title: "Alternative Text",
+                                },
+                                {
+                                    name: "caption",
+                                    type: "string",
+                                    title: "Caption",
+                                },
+                            ],
+                        }),
+                    ],
+                },
+            ],
+        }),
+        defineArrayMember({
             name: "videoRow",
             title: "Video Row",
             type: "object",
@@ -83,7 +114,7 @@ export default defineType({
                     name: "videos",
                     title: "Videos",
                     type: "array",
-                    validation: (Rule) => Rule.min(1).max(3),
+                    validation: (Rule) => Rule.min(1).max(2),
                     of: [
                         defineArrayMember({
                             name: "video",

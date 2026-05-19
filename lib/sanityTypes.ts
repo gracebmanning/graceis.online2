@@ -38,6 +38,11 @@ export interface ImageBlock extends SanityImage {
     caption?: string;
 }
 
+export interface ImageRowBlock {
+    _type: "imageRow";
+    images?: ImageBlock[];
+}
+
 export interface VideoBlock {
     _key: string;
     videoSource?: "url" | "cloudfront";

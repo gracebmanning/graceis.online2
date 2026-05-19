@@ -2,11 +2,11 @@
 import { type JSX, type ReactNode, useState } from "react";
 import { PortableText } from "next-sanity";
 import CodeBlock from "./codeBlock";
-import { CaptionedImage, VideoRow } from "./captionedAssets";
+import { CaptionedImage, ImageRow, VideoRow } from "./captionedAssets";
 import { slugify } from "@/util/slugify";
 import { FiLink, FiCheck } from "react-icons/fi";
 import { MdArrowOutward } from "react-icons/md";
-import { type Block, type ImageBlock, type VideoRowBlock } from "@/lib/sanityTypes";
+import { ImageRowBlock, type Block, type ImageBlock, type VideoRowBlock } from "@/lib/sanityTypes";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const extractTextFromChildren = (children: any): string => {
@@ -68,7 +68,12 @@ const ptComponents = {
     types: {
         image: ({ value }: { value: ImageBlock }) => {
             if (!value?.asset?._ref) return null;
-            return <CaptionedImage imageBlock={value} />;
+            return <CaptionedImage image={value} />;
+        },
+        imageRow: ({ value }: { value: ImageRowBlock }) => {
+            const { images } = value;
+            if (!images || images.length === 0) return null;
+            return <ImageRow images={images} />;
         },
         videoRow: ({ value }: { value: VideoRowBlock }) => {
             const { videos } = value;
