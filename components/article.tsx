@@ -36,7 +36,7 @@ export function Article({ article }: { article: BlogPost | Project }) {
                     {article.body ? (
                         <PortableTextComponent content={article.body} />
                     ) : (
-                        "No content available."
+                        <p className="w-full">No content available.</p>
                     )}
                 </div>
             </div>
