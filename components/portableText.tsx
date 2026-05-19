@@ -110,10 +110,10 @@ const ptComponents = {
     },
     listItem: {
         bullet: ({ children }: { children?: ReactNode }) => (
-            <li className="w-full list-item">{children}</li>
+            <li className="w-full list-item my-1.5">{children}</li>
         ),
         number: ({ children }: { children?: ReactNode }) => (
-            <li className="w-full list-item">{children}</li>
+            <li className="w-full list-item my-1.5">{children}</li>
         ),
     },
     marks: {
