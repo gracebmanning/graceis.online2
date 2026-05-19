@@ -1,4 +1,6 @@
 import { defineType, defineArrayMember } from "sanity";
+import { ImageRowPreview } from "../components/ImageRowPreview";
+import { VideoRowPreview } from "../components/VideoRowPreview";
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -104,6 +106,12 @@ export default defineType({
                     ],
                 },
             ],
+            preview: {
+                select: { images: "images" },
+            },
+            components: {
+                preview: ImageRowPreview,
+            },
         }),
         defineArrayMember({
             name: "videoRow",
@@ -156,6 +164,12 @@ export default defineType({
                     ],
                 },
             ],
+            preview: {
+                select: { videos: "videos" },
+            },
+            components: {
+                preview: VideoRowPreview,
+            },
         }),
     ],
 });
